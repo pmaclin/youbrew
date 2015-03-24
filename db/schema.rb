@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324052739) do
+ActiveRecord::Schema.define(version: 20150324053443) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "size"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20150324052739) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "uniques", force: :cascade do |t|
+    t.integer  "rand_num"
+    t.integer  "batch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "uniques", ["batch_id"], name: "index_uniques_on_batch_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
