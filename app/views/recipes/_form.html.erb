@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :brew_type %>
+    <%= f.input :brew_type, collection: [ "Extract", "Extract + Special Grains", "Partial/Mini-Mash", "All-Grain...You Rock!"] %>
     <%= f.input :description %>
     <%= f.input :tog %>
     <%= f.input :tfg %>
