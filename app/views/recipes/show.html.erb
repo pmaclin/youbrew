@@ -4,14 +4,14 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Recipe #<%= @recipe.id %></h3>
+        <h3 class="panel-title">Recipe Name: <%= @recipe.name %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Name</dt>
-              <dd><%= @recipe.name %></dd>
+              <!-- <dt>Name</dt> -->
+              <dd><%#= @recipe.name %></dd>
 
               <dt>Brew type</dt>
               <dd><%= @recipe.brew_type %></dd>
@@ -56,9 +56,11 @@
             </div>
           </div>
         </div>
-        <hr>
+<hr>
             <div align="right">
               Create a new batch: <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
+            </div>
+<hr>
             </div>
       </div>
     </div>
