@@ -4,20 +4,17 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Style #<%= @style.id %></h3>
+        <h3 class="panel-title">Style #<%= @style.name %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Name</dt>
-              <dd><%= @style.name %></dd>
-
               <dt>Std flavor profile</dt>
               <dd><%= @style.std_flavor_profile %></dd>
 
-              <dt>Com ex image</dt>
-              <dd><%= @style.com_ex_image %></dd>
+              <dt>Example</dt>
+              <dd><%= image_tag @style.com_ex_image %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
