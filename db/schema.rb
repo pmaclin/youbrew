@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324051923) do
+ActiveRecord::Schema.define(version: 20150324052739) do
+
+  create_table "batches", force: :cascade do |t|
+    t.string   "size"
+    t.string   "brew_date"
+    t.string   "bottle_date"
+    t.float    "aog"
+    t.float    "afg"
+    t.float    "aabv"
+    t.string   "aaroma"
+    t.integer  "aibu"
+    t.string   "image"
+    t.text     "aflavpro"
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
+  add_index "batches", ["user_id"], name: "index_batches_on_user_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +52,19 @@ ActiveRecord::Schema.define(version: 20150324051923) do
 
   add_index "recipes", ["style_id"], name: "index_recipes_on_style_id"
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "headline"
+    t.text     "content"
+    t.integer  "overall_rating"
+    t.integer  "user_id"
+    t.integer  "batch_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "reviews", ["batch_id"], name: "index_reviews_on_batch_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "styles", force: :cascade do |t|
     t.string   "name"

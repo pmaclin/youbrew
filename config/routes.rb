@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :reviews
+
+  resources :batches
+
   resources :recipes
 
   resources :styles

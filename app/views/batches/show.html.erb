@@ -1,0 +1,64 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Batch #<%= @batch.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Size</dt>
+              <dd><%= @batch.size %></dd>
+
+              <dt>Brew date</dt>
+              <dd><%= @batch.brew_date %></dd>
+
+              <dt>Bottle date</dt>
+              <dd><%= @batch.bottle_date %></dd>
+
+              <dt>Aog</dt>
+              <dd><%= @batch.aog %></dd>
+
+              <dt>Afg</dt>
+              <dd><%= @batch.afg %></dd>
+
+              <dt>Aabv</dt>
+              <dd><%= @batch.aabv %></dd>
+
+              <dt>Aaroma</dt>
+              <dd><%= @batch.aaroma %></dd>
+
+              <dt>Aibu</dt>
+              <dd><%= @batch.aibu %></dd>
+
+              <dt>Image</dt>
+              <dd><%= @batch.image %></dd>
+
+              <dt>Aflavpro</dt>
+              <dd><%= @batch.aflavpro %></dd>
+
+              <dt>User</dt>
+              <dd><%= @batch.user %></dd>
+
+              <dt>Recipe</dt>
+              <dd><%= @batch.recipe %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <%= link_to icon('chevron-left'), batches_path, class: "btn btn-primary" %>
+
+              <%= link_to icon('edit'), edit_batch_path(@batch), class: "btn btn-warning" %>
+
+              <%= link_to icon('trash-o'), @batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
