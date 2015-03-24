@@ -10,8 +10,6 @@ class BatchesController < ApplicationController
     else
         @batches = Batch.all
     end
-
-    @batches = Batch.all
   end
 
   # GET /batches/1
