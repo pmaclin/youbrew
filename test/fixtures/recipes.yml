@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brew_type: MyString
+  description: MyText
+  tog: 1.5
+  tfg: 1.5
+  tabv: 1.5
+  taroma: MyString
+  tibu: 1
+  label: MyString
+  tflavpro: MyText
+  user_id: 
+  style_id: 
+
+two:
+  name: MyString
+  brew_type: MyString
+  description: MyText
+  tog: 1.5
+  tfg: 1.5
+  tabv: 1.5
+  taroma: MyString
+  tibu: 1
+  label: MyString
+  tflavpro: MyText
+  user_id: 
+  style_id: 

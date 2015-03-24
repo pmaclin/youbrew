@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324050317) do
+ActiveRecord::Schema.define(version: 20150324051923) do
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "brew_type"
+    t.text     "description"
+    t.float    "tog"
+    t.float    "tfg"
+    t.float    "tabv"
+    t.string   "taroma"
+    t.integer  "tibu"
+    t.string   "label"
+    t.text     "tflavpro"
+    t.integer  "user_id"
+    t.integer  "style_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "recipes", ["style_id"], name: "index_recipes_on_style_id"
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "styles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "std_flavor_profile"
+    t.string   "com_ex_image"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
