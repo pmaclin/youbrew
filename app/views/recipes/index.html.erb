@@ -2,7 +2,7 @@
   <h1>
     My Recipes
     </h1>
-    <h3>Add New Recipe <%= link_to icon('plus'), new_recipe_path, class: "btn btn-lg btn-success" %>
+    <h3>Add a New Recipe <%= link_to icon('plus'), new_recipe_path, class: "btn btn-lg btn-success" %>
     </h3>
 </div>
 
@@ -18,16 +18,13 @@
 
 <div class="row isotope-container">
 <% @recipes.each do |recipe| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Recipe #<%= recipe.id %></h3>
+        <h3 class="panel-title">Recipe: <%= recipe.name %></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Name</dt>
-          <dd><%= recipe.name %></dd>
-
           <dt>Brew type</dt>
           <dd><%= recipe.brew_type %></dd>
 
