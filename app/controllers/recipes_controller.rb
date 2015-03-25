@@ -29,7 +29,8 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params) # Build the Favorite
+    @recipe.user = current_user # Set manually the user using the current_user method. Keeps tampering with the user field a non issue
 
     respond_to do |format|
       if @recipe.save

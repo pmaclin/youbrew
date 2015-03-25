@@ -20,6 +20,7 @@ class BatchesController < ApplicationController
   # GET /batches/new
   def new
     @batch = Batch.new
+
   end
 
   # GET /batches/1/edit
@@ -30,6 +31,7 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
+    @batch.user = current_user
 
     respond_to do |format|
       if @batch.save
