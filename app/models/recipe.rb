@@ -5,5 +5,5 @@ class Recipe < ActiveRecord::Base
   has_many :batches
 
   # Do we validate user or user_id, the foreign key?
-  # validates :user, :presence => true
+  validates :user, :presence => true
 end
