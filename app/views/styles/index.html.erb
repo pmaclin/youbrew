@@ -1,8 +1,11 @@
 <div class="page-header">
   <h1>
-    Styles
+    Beer Styles
     <%= link_to icon('plus'), new_style_path, class: "btn btn-lg btn-success" %>
   </h1>
+  <h4>
+    The AHBA currently recognizes <%= Style.count %> different, distinct and individual styles of beer (ales and lagers). Check out some of the more popular and widely distributed brands here, and use this as your inspiration when planning the 'perfect' recipe.
+  </h4>
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
@@ -31,12 +34,13 @@
           <dd><%= image_tag style.com_ex_image, :height => '50%', :width => '50%'  %></dd>
 
         </dl>
-        <div class="btn-group btn-group-justified">
-          <%= link_to icon('search-plus'), style, class: "btn btn-primary" %>
 
-          <%= link_to icon('edit'), edit_style_url(style), class: "btn btn-warning" %>
-
-          <%= link_to icon('trash-o'), style, method: :delete, data: { confirm: "Do you really want to delete this style?" }, class: "btn btn-danger" %>
+          <div class="btn-group btn-group-justified">
+              <%= link_to icon('search-plus'), style, class: "btn btn-primary" %>
+            <% if current_user.email == "pmac@example.com" %>
+              <%= link_to icon('edit'), edit_style_url(style), class: "btn btn-warning" %>
+              <%= link_to icon('trash-o'), style, method: :delete, data: { confirm: "Do you really want to delete this style?" }, class: "btn btn-danger" %>
+          <% end %>
 
         </div>
       </div>
