@@ -21,9 +21,6 @@ class BatchesController < ApplicationController
   def new
     @batch = Batch.new
 
-    # b = Batch.find_by({ :recipe_id => recipe.id, :user_id => current_user.id})
-    # if b.present?
-
   end
 
   # GET /batches/1/edit

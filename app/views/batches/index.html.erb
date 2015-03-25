@@ -25,41 +25,41 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Size</dt>
+          <dt>Size of the batch (in U.S. gallons)</dt>
           <dd><%= batch.size %></dd>
 
-          <dt>Brew date</dt>
+          <dt>When did you brew this batch?</dt>
           <dd><%= batch.brew_date %></dd>
 
-          <dt>Bottle date</dt>
+          <dt>When did you bottle or keg this batch?</dt>
           <dd><%= batch.bottle_date %></dd>
 
-          <dt>Aog</dt>
+          <dt>Actual Original Gravity </dt>
           <dd><%= batch.aog %></dd>
 
-          <dt>Afg</dt>
+          <dt>Actual Final Gravity</dt>
           <dd><%= batch.afg %></dd>
 
-          <dt>Aabv</dt>
+          <dt>Actual ABV</dt>
           <dd><%= batch.aabv %></dd>
 
-          <dt>Aaroma</dt>
+          <dt>Actual Aroma</dt>
           <dd><%= batch.aaroma %></dd>
 
-          <dt>Aibu</dt>
+          <dt>Actual IBUs</dt>
           <dd><%= batch.aibu %></dd>
 
           <dt>Image</dt>
           <dd><%= batch.image %></dd>
 
-          <dt>Aflavpro</dt>
+          <dt>Actual Flavor Profile</dt>
           <dd><%= batch.aflavpro %></dd>
 
-          <dt>User</dt>
-          <dd><%= batch.user.email %></dd>
+          <!-- <dt>User</dt> -->
+          <dd><%#= batch.user.email %></dd>
 
-          <dt>Recipe</dt>
-          <dd><%= batch.recipe.name%></dd>
+         <!--  <dt>Recipe</dt> -->
+          <dd><%#= batch.recipe.name%></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
