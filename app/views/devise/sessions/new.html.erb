@@ -41,7 +41,7 @@
 
       <div class="list-group">
         <a href="#" class="list-group-item active">
-        What's Brewing?<span class="badge">184</span>
+        What's Brewing Now?<span class="badge">184</span>
         </a>
         <a href="#" class="list-group-item">Stouts <span class="badge">47</span></a>
         <a href="#" class="list-group-item">Barley Wines <span class="badge">18</span></a>
@@ -51,9 +51,11 @@
     </div>
 
       <div class="col-md-4">
-        <%= form_for(@things) do |f| %>
-
-        <% end %>
+        <h4 align="center">Have a brew to review?</h4>
+        <form action="uniques/new" method="get">
+          Enter a brew number: <input type="text" name="unique_num">
+          <input type="submit" value="Submit"><br>
+        </form>
 
       </div>
 
