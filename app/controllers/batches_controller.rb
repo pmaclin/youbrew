@@ -21,6 +21,9 @@ class BatchesController < ApplicationController
   def new
     @batch = Batch.new
 
+    # b = Batch.find_by({ :recipe_id => recipe.id, :user_id => current_user.id})
+    # if b.present?
+
   end
 
   # GET /batches/1/edit
@@ -76,6 +79,6 @@ class BatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
-      params.require(:batch).permit(:size, :brew_date, :bottle_date, :aog, :afg, :aabv, :aaroma, :aibu, :image, :aflavpro, :user_id, :recipe_id)
+      params.require(:batch).permit(:size, :brew_date, :bottle_date, :aog, :afg, :aabv, :aaroma, :aibu, :image, :aflavpro, :recipe_id)
     end
 end
