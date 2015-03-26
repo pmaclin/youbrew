@@ -21,50 +21,47 @@
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Recipe: <%= recipe.name %></h3>
+        <h3 class="panel-title"><b><%= recipe.name %></b></h3>
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Brew type</dt>
-          <dd><%= recipe.brew_type %></dd>
+          <dt><strong>Beer Style:</strong> <%= recipe.style.name %></dt>
 
-          <dt>Description</dt>
-          <dd><%= recipe.description %></dd>
+          <dt>Brew type: <%= recipe.brew_type %></dt>
 
-          <dt>Tog</dt>
-          <dd><%= recipe.tog %></dd>
+          <dt>Label: <%= recipe.label %></dt>
 
-          <dt>Tfg</dt>
-          <dd><%= recipe.tfg %></dd>
+          <!-- <dt>Description</dt> -->
+          <dd><%#= recipe.description %></dd>
 
-          <dt>Tabv</dt>
-          <dd><%= recipe.tabv %></dd>
+         <!--  <dt>Tog</dt> -->
+          <dd><%#= recipe.tog %></dd>
 
-          <dt>Taroma</dt>
-          <dd><%= recipe.taroma %></dd>
+          <!-- <dt>Tfg</dt> -->
+          <dd><%#= recipe.tfg %></dd>
 
-          <dt>Tibu</dt>
-          <dd><%= recipe.tibu %></dd>
+          <!-- <dt>Tabv</dt> -->
+          <dd><%#= recipe.tabv %></dd>
 
-          <dt>Label</dt>
-          <dd><%= recipe.label %></dd>
+          <!-- <dt>Taroma</dt> -->
+          <dd><%#= recipe.taroma %></dd>
 
-          <dt>Tflavpro</dt>
-          <dd><%= recipe.tflavpro %></dd>
+          <!-- <dt>Tibu</dt> -->
+          <dd><%#= recipe.tibu %></dd>
 
-          <dt>User</dt>
-          <dd><%= recipe.user.email %></dd>
+          <!-- <dt>Tflavpro</dt> -->
+          <dd><%#= recipe.tflavpro %></dd>
 
-          <dt>Style</dt>
-          <dd><%= recipe.style.name %></dd>
+          <!-- <dt>User</dt> -->
+          <dd><%#= recipe.user.email %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
           <%= link_to icon('search-plus'), recipe, class: "btn btn-primary" %>
 
-          <%= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
+          <%#= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
 
-          <%= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+          <%#= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>

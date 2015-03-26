@@ -41,3 +41,12 @@
 </div>
 
 <!-- End responsive panel example -->
+<!-- From review/show: -->
+<!-- 1. The user/fan will input a unique number
+     2. The beer's profile info should come up, on the review/show page. It will have some detail about the beer
+        which will come from the beer's batch profile. This will be the "actual" information, gathered by the brewer
+        after the batch has been made...Not the target information that comes from the recipe.
+     3. On save, a NEW ROW is created in the REVIEW table -->
+
+<!-- The number coming in from the user is a unique_id. When that unique number comes in through stored in the params hash, we're going to ask the UNIQUE table if it has a row (unique.id) that matches this unique_id? If you do, please return the batch_id. Once we have that row, we can go over to the batch table and return all of the relevant batch information (Actual batch data), and show that on the review/show page. -->
+<!-- The user/fan will rate the beer, leave a review and on submit a new row will be created in the REVIEW table. -->
