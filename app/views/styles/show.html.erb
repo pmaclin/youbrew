@@ -19,10 +19,10 @@
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to icon('chevron-left'), styles_path, class: "btn btn-primary" %>
-
+                <% if current_user.email == "pmac@example.com" %>
               <%= link_to icon('edit'), edit_style_path(@style), class: "btn btn-warning" %>
-
               <%= link_to icon('trash-o'), @style, method: :delete, data: { confirm: "Do you really want to delete this style?" }, class: "btn btn-danger" %>
+                <% end %>
             </div>
           </div>
         </div>
