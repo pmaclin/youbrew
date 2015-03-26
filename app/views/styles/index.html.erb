@@ -37,7 +37,7 @@
 
           <div class="btn-group btn-group-justified">
               <%= link_to icon('search-plus'), style, class: "btn btn-primary" %>
-            <% if current_user.email == "pmac@example.com" %>
+            <% if current_user.email == "p1@example.com" %>
               <%= link_to icon('edit'), edit_style_url(style), class: "btn btn-warning" %>
               <%= link_to icon('trash-o'), style, method: :delete, data: { confirm: "Do you really want to delete this style?" }, class: "btn btn-danger" %>
           <% end %>
