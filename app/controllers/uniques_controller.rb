@@ -7,6 +7,14 @@ class UniquesController < ApplicationController
     @uniques = Unique.all
   end
 
+  def generate_rand_num
+    @unique = Unique.new
+
+    @unique.rand_num = SecureRandom.random_number(1000000000)
+
+
+  end
+
   # GET /uniques/1
   # GET /uniques/1.json
   def show

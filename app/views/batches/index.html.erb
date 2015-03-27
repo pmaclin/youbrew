@@ -18,10 +18,11 @@
 
 <div class="row isotope-container">
 <% @batches.each do |batch| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+<% r = Recipe.find_by({ :id => batch.recipe_id }) %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Batch ID#<%= batch.id %></h3>
+        <h3 class="panel-title" align="center">Batch ID#<%= batch.id %>| <small>From the recipe: <%= r.name %></small></h3>
       </div>
       <div class="panel-body">
         <dl>
@@ -56,10 +57,13 @@
           <dd><%= batch.aflavpro %></dd>
 
           <!-- <dt>User</dt> -->
-          <dd><%#= batch.user.email %></dd>
+          <!-- <dd><%#= batch.user.email %></dd> -->
 
           <!-- <dt>Recipe</dt> -->
-          <dd><%#= batch.recipe.name%></dd>
+          <!-- Creating an intermediate variable; using the fk for lookup to find the row, then we rape and pillage it. -->
+          <%# r = Recipe.find_by({ :id => batch.recipe_id }) %>
+          <!-- <dd><%#= r.name %></dd> -->
+
 
         </dl>
         <div class="btn-group btn-group-justified">
