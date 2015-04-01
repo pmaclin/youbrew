@@ -17,6 +17,9 @@ class UniquesController < ApplicationController
   #   @match = Unique.find_by({ :rand_num => params("match_unique_num")} )
   end
 
+  def match_num
+  end
+
   # GET /uniques/1
   # GET /uniques/1.json
   def show
