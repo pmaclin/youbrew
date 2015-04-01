@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :mirrors
+  get("/mirrors/input", { :controller => "mirrors", :action => "input_form"})
+  get("/mirrors/match", { :controller => "mirrors", :action => "match_num"})
 
-  get("/uniques/input", { :controller => "uniques", :action => "input_form"})
-  get("/uniques/match", { :controller => "uniques", :action => "match_num"})
+  resources :mirrors
 
   resources :uniques
 

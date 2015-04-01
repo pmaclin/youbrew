@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324053443) do
+ActiveRecord::Schema.define(version: 20150401154236) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "size"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20150324053443) do
 
   add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
   add_index "batches", ["user_id"], name: "index_batches_on_user_id"
+
+  create_table "mirrors", force: :cascade do |t|
+    t.integer  "mrand_num"
+    t.integer  "unique_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "mirrors", ["unique_id"], name: "index_mirrors_on_unique_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"

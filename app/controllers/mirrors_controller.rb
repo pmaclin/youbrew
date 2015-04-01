@@ -7,6 +7,16 @@ class MirrorsController < ApplicationController
     @mirrors = Mirror.all
   end
 
+  def input_form
+  #   @match = Mirror.find_by({ :rand_num => params("match_num")} )
+  end
+
+  def match_num
+    m = Mirror.new
+    m.mrand_num = params["new_number"]
+    m.save
+  end
+
   # GET /mirrors/1
   # GET /mirrors/1.json
   def show
