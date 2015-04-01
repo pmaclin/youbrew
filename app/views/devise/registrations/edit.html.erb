@@ -19,6 +19,8 @@
                 <a href="#" class="list-group-item">Number of batches you've created: <span class="badge"><%= current_user.batches.count %></span></a>
 
                 <a href="#" class="list-group-item">Number of reviews from your batches: <span class="badge">2<%#= current_user.reviews.count %></span></a>
+                <a href="#" class="list-group-item">Number of times your recipes have been liked: <span class="badge">17</span></a>
+                <a href="#" class="list-group-item">Your most like recipe: <span class="badge">American Stout</span></a>
                 <a href="#" class="list-group-item">The beer style in most of your recipes: <span class="badge">Belgian Ale</span></a>
                 <a href="#" class="list-group-item">The beer style you've most frequently reviewed : <span class="badge">American Stout</span></a>
               <% elsif current_user.recipes.count < 1 %>
@@ -28,8 +30,8 @@
                   <div class="row">
                     <div class="col-md-12" align="left">
                       <h4 align="left">Have a brew to review?</h4>
-                        <form action="uniques/new" method="get">
-                          Enter a brew number: <input type="text" name="unique_num">
+                        <form action="http://localhost:3000/match_unique_num" method="get">
+                          Enter a brew number: <input type="text" name="match_unique_num">
                           <input type="submit" value="Submit"><br>
                         </form>
                     </div>
@@ -40,12 +42,12 @@
                   <div class="row" align="left">
                     <div class="col-md-12" align="left">
                     <h4 align="left">Your BEERography</h4>
-                      <dd align="left">
+                      <ol align="left">
                         <% recipes = Recipe.where({ :user_id => current_user })  %>
                           <% recipes.each do |recipe| %>
-                        <li><%= recipe.name %><small>, a <%= recipe.style.name %></small></li>
+                        <li><%= recipe.name %><small>, an <%= recipe.style.name %></small></li>
                         <% end %>
-                      </dd>
+                      </ol>
                     </div>
                   </div>
           </div>

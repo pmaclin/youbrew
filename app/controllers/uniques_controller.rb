@@ -7,12 +7,14 @@ class UniquesController < ApplicationController
     @uniques = Unique.all
   end
 
-  def generate_rand_num
-    @unique = Unique.new
+  # def generate_rand_num
+  #   @unique = Unique.new
 
-    @unique.rand_num = SecureRandom.random_number(1000000000)
+  #   @unique.rand_num = SecureRandom.random_number(1000000000)
+  # end
 
-
+  def input_form
+  #   @match = Unique.find_by({ :rand_num => params("match_unique_num")} )
   end
 
   # GET /uniques/1

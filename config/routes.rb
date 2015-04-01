@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get("/uniques/input", { :controller => "uniques", :action => "input_form"})
+
   resources :uniques
 
   resources :reviews
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     root "devise/registrations#edit"
   end
+
+
 
   # devise_for :users, controllers: { registrations: "users/registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
