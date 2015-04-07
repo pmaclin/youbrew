@@ -12,9 +12,10 @@ class MirrorsController < ApplicationController
   end
 
   def match_num
-    m = Mirror.new
-    m.mrand_num = params["new_number"]
-    m.save
+    @m = Mirror.new
+    @m.mrand_num = params[:new_number]
+    @m.save
+
   end
 
   # GET /mirrors/1
