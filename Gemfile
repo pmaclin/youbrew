@@ -1,3 +1,5 @@
+ruby '2.2.0'
+
 source 'https://rubygems.org'
 
 group :production do
@@ -10,8 +12,6 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 
 gem 'devise'
-
-ruby '2.2.0'
 
 gem 'seed_dump'
 
