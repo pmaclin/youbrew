@@ -1,6 +1,4 @@
-User.create!([
 
-])
 Batch.create!([
   {size: "5 Gallons", brew_date: "1/2/2014", bottle_date: "3/10/2014", aog: nil, afg: nil, aabv: nil, aaroma: "", aibu: nil, image: "", aflavpro: "", user_id: 4, recipe_id: 4},
   {size: "5 Gallon", brew_date: "3/1/2015", bottle_date: "3/31/2015", aog: 1.072, afg: 1.002, aabv: 4.9, aaroma: "Salty", aibu: 72, image: "", aflavpro: "Didn't come out as expected...", user_id: 3, recipe_id: 6},
