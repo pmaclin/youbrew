@@ -1,3 +1,5 @@
+User.create!([
+  ])
 
 Batch.create!([
   {size: "5 Gallons", brew_date: "1/2/2014", bottle_date: "3/10/2014", aog: nil, afg: nil, aabv: nil, aaroma: "", aibu: nil, image: "", aflavpro: "", user_id: 4, recipe_id: 4},
@@ -96,3 +98,5 @@ Style.create!([
   {name: "Smoked Beer", std_flavor_profile: "A beer in which a smokey flavor\n   is distinct enough to classify the beer as a smoked beer instead of the style of beer in would generally be classified as. The smoke can be added in a number of different ways.", com_ex_image: ""},
   {name: "Traditional Ale", std_flavor_profile: "Any beer brewed in an ancient or an antique style usually using recipes that are many centuries old.", com_ex_image: "http://sherbrookeliquor.ca/wp-content/uploads/2013/08/bigrocktradSIZE.jpg"}
 ])
+
+User.destroy_all
