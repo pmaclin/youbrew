@@ -18,6 +18,15 @@ class UniquesController < ApplicationController
   end
 
   def match_num
+    @mirror = Mirror.new
+    @mirror.mrand_num = params[:new_number]
+
+    @mirror.save
+
+    # @m = Mirror.find_by({ :mrand_num => params[:new_number] })
+    @u = Unique.find_by({ :rand_num => params[:new_number] })
+
+
   end
 
   # GET /uniques/1

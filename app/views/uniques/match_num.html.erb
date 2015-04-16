@@ -1,2 +1,33 @@
-<h1>Successful Match, MuthaFucka!</h1>
-<p>Show brew profile information here...</p>
+<%# if @m.present? %>
+<!--   We have a match!! -->
+<%# else %>
+  <!-- Sorry...no match here. Please try again! -->
+<%# end %>
+
+<%# if @u.present? %>
+  <!-- This number matches something in Uniques... -->
+<%# else %>
+  <!-- Sorry....no match! Please try again. -->
+<%# end %>
+
+<% if @u.present? %>
+  <h1>We have a match!</h1> You've made a match for brew ID#: <%= @u.rand_num %>
+    <ul>
+      <li>Batch ID#: <%= @u.batch_id %></li>
+      <li>Brewer's name: <%= @u.batch.recipe.user.username %></li>
+      <li>Name of the Brew: <%= @u.batch.recipe.name %></li>
+      <li>Brew Date: <%= @u.batch.brew_date %></li>
+      <li>Bottle Date: <%= @u.batch.bottle_date %></li>
+      <li>Original Gravity: <%= @u.batch.aog %></li>
+      <li>Final Gravity: <%= @u.batch.afg %></li>
+      <li>ABV: <%= @u.batch.aabv %>%</li>
+      <li>Aroma: <%= @u.batch.aaroma %></li>
+      <li>IBUs: <%= @u.batch.aibu %></li>
+      <li>Flavor Profile: <%= @u.batch.aflavpro %></li>
+      <li>Image: <%= @u.batch.image %></li>
+    </ul>
+<% else %>
+  <h1>Sorry!</h1> <%= params[:new_number] %> doesn't match one of our brews. Please try again.
+<% end %>
+
+

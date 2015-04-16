@@ -12,10 +12,12 @@ class MirrorsController < ApplicationController
   end
 
   def match_num
-    @m = Mirror.new
-    @m.mrand_num = params[:new_number]
-    @m.save
+    @mirror = Mirror.new
+    @mirror.mrand_num = params[:new_number]
 
+    @mirror.save
+
+    @m = Mirror.find_by({ :mrand_num => params[:new_number]})
   end
 
   # GET /mirrors/1

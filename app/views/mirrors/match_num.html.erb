@@ -1,5 +1,11 @@
-<h1>Successful Lookup</h1>
+<h1>Your brew with ID# <%= @mirror.mrand_num %> has been matched!</h1>
 <p>Show brew profile information here if there's a successful match...</p>
+<hr>
+<% if @m.present? %>
+  We have a match!!
+<% else %>
+  Sorry...no match here. Please try again!
+<% end %>
 
 <%# if    %>
 

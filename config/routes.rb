@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  # Routes to CREATE row in MIRROR table
   get("/mirrors/input", { :controller => "mirrors", :action => "input_form"})
-  get("/mirrors/match", { :controller => "mirrors", :action => "match_num"})
+  # get("/match_brew", { :controller => "mirrors", :action => "match_num"})
+  get("/match_brew", { :controller => "uniques", :action => "match_num"})
 
   resources :mirrors
 

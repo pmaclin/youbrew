@@ -1,6 +1,12 @@
 User.create!([
-  ])
-
+  {email: "a1@example.com", password: "12341234", encrypted_password: "$2a$10$jC0pWuR3Q1KOtmTX2kT/b.lmOzmRHT5VW6pVC.y9c8havRggG3s5.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 9, current_sign_in_at: "2015-03-24 17:27:54", last_sign_in_at: "2015-03-24 17:18:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "zeta_example", you_brew: nil, city: nil, state: nil},
+  {email: "b1@example.com", password: "12341234", encrypted_password: "$2a$10$uytV1o.QsYX3K4.N7batHOf4XaFKeAz4qwHvs.apqOI0y/wMhnhwi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 8, current_sign_in_at: "2015-03-26 00:11:28", last_sign_in_at: "2015-03-25 05:36:02", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "beta_example", you_brew: nil, city: nil, state: nil},
+  {email: "p1@example.com", password: "12341234", encrypted_password: "$2a$10$t4uFzK8A5M5gaZRiTWm3Z.BQS3TEnSp8IUi91DowM.vMvV1gYwpgS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 14, current_sign_in_at: "2015-03-26 00:24:15", last_sign_in_at: "2015-03-26 00:10:15", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "p_diddy", you_brew: nil, city: nil, state: nil},
+  {email: "d1@example.com", password: "12341234", encrypted_password: "$2a$10$gYPJ3rtj/gLsi04wrbaoT.CyZbI4wCflvVuw5BqNvjK8FSF.6QN6e", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 6, current_sign_in_at: "2015-03-25 23:45:34", last_sign_in_at: "2015-03-25 21:06:28", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "a_example", you_brew: nil, city: nil, state: nil},
+  {email: "e1@example.com", password: "12341234", encrypted_password: "$2a$10$MdiMVmjOfirc/3gKjdlA..JCjB0ldoFtD3wtJQS5LThKKvjui1zqu", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-03-25 02:32:27", last_sign_in_at: "2015-03-25 02:32:27", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "c_example", you_brew: nil, city: nil, state: nil},
+  {email: "f1@example.com", password: "12341234", encrypted_password: "$2a$10$xj2W9nqDkZzNf72Uv/T5MuB.ceVStB5e/pjOpfUIwxRyqzlCsvSeq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-03-25 19:28:01", last_sign_in_at: "2015-03-25 19:28:01", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "d_example", you_brew: nil, city: nil, state: nil},
+  {email: "g1@example.com", password: "12341234", encrypted_password: "$2a$10$lfC06QQHCDcjYqS8gZU0uurafSFYCRj/3Cy3ZVqp.FvZ5j8Qb173S", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-03-26 00:09:24", last_sign_in_at: "2015-03-26 00:09:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", username: "cj_hashbrown", you_brew: nil, city: nil, state: nil}
+])
 Batch.create!([
   {size: "5 Gallons", brew_date: "1/2/2014", bottle_date: "3/10/2014", aog: nil, afg: nil, aabv: nil, aaroma: "", aibu: nil, image: "", aflavpro: "", user_id: 4, recipe_id: 4},
   {size: "5 Gallon", brew_date: "3/1/2015", bottle_date: "3/31/2015", aog: 1.072, afg: 1.002, aabv: 4.9, aaroma: "Salty", aibu: 72, image: "", aflavpro: "Didn't come out as expected...", user_id: 3, recipe_id: 6},
@@ -98,5 +104,3 @@ Style.create!([
   {name: "Smoked Beer", std_flavor_profile: "A beer in which a smokey flavor\n   is distinct enough to classify the beer as a smoked beer instead of the style of beer in would generally be classified as. The smoke can be added in a number of different ways.", com_ex_image: ""},
   {name: "Traditional Ale", std_flavor_profile: "Any beer brewed in an ancient or an antique style usually using recipes that are many centuries old.", com_ex_image: "http://sherbrookeliquor.ca/wp-content/uploads/2013/08/bigrocktradSIZE.jpg"}
 ])
-
-User.destroy_all

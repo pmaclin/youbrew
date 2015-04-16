@@ -1,5 +1,6 @@
 class Unique < ActiveRecord::Base
   belongs_to :batch
+  belongs_to :mirror
 
   has_many :mirrors
 
