@@ -7,5 +7,6 @@ class Batch < ActiveRecord::Base
 
   validates :brew_date, :presence => true
   validates :bottle_date, :presence => true
+  validates :recipe_id, :presence => true
 
 end

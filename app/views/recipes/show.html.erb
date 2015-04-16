@@ -58,7 +58,7 @@
         </div>
 <hr>
             <div align="right">
-              Create a new batch: <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
+              Create a new batch: <%= link_to icon('plus'), new_batch_path( :recipe_id => params[:id] ), class: "btn btn-lg btn-success" %>
             </div>
 <hr>
             </div>

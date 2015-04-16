@@ -12,6 +12,11 @@ class BatchesController < ApplicationController
     end
   end
 
+  def generate_uniques
+    @u_num = params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], rand_num: rand(1000000))
+    end
+  end
+
   # GET /batches/1
   # GET /batches/1.json
   def show
@@ -19,7 +24,7 @@ class BatchesController < ApplicationController
 
   # GET /batches/new
   def new
-    @batch = Batch.new
+    @batch = Batch.new(recipe_id: params[:recipe_id])
 
   end
 

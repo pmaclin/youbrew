@@ -54,6 +54,14 @@
 
               <%= link_to icon('trash-o'), @batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
             </div>
+
+                <%= form_tag("/batches/#{params[:id]}/generate_uniques", method:"post") do %>
+                    <div>
+                      <label for="new uniques numbers" >Input Number of Unique IDs: </label>
+                      <input name="unique_num" type="text" id="first">
+                      <input align="right" type="submit" value="Generate IDs">
+                    </div>
+                <% end %>
           </div>
         </div>
       </div>

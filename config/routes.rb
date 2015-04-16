@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # get("/match_brew", { :controller => "mirrors", :action => "match_num"})
   get("/match_brew", { :controller => "uniques", :action => "match_num"})
 
+  post("batches/:id/generate_uniques", { :controller => "batches", :action => "generate_uniques"})
+
   resources :mirrors
 
   resources :uniques
