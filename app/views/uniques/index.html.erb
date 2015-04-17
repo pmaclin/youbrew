@@ -15,43 +15,42 @@
 
 <hr>
 
-<div class="row isotope-container">
-<% @uniques.each do |unique| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Unique #<%= unique.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Rand num</dt>
-          <dd><%= unique.rand_num %></dd>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">UNIQUE NUMBERS CREATED</div>
 
-          <dt>Batch</dt>
-          <dd><%= unique.batch_id %></dd>
+    <table class="table" align="left">
+      <thead>
+          <tr>
+              <th>Unique ID</th>
+              <th>Batch ID</th>
+              <th>Recipe Name</th>
+              <th>Unique Number</th>
+              <th>Controls</th>
+          </tr>
+      </thead>
+      <tbody>
+      <% @uniques.each do |unique| %>
 
-        </dl>
-        <div class="btn-group btn-group-justified">
+          <tr>
+            <td><%= unique.id %></td>
+            <td><%= unique.batch_id %></td>
+            <td><%= unique.batch.recipe.name %></td>
+            <td><%= unique.rand_num %></td>
+            <td>
           <%= link_to icon('search-plus'), unique, class: "btn btn-primary" %>
 
           <%= link_to icon('edit'), edit_unique_url(unique), class: "btn btn-warning" %>
 
           <%= link_to icon('trash-o'), unique, method: :delete, data: { confirm: "Do you really want to delete this unique?" }, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+
+        </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 </div>
 
-<div class="row">
-  <ul>
-    Some Font Awesome Stuff:
-    <%= icon('flag') %>
-    <%= icon('flag', '', class: 'strong') %>
-    <%= icon('flag', 'Some Text', id: 'my-icon', class: 'strong') %>
-  </ul>
-</div>
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
