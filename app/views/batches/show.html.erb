@@ -4,13 +4,13 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Batch #<%= @batch.id %></h3>
+        <h3 class="panel-title">Batch ID#<%= @batch.id %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Size</dt>
+              <dt>Batch Size</dt>
               <dd><%= @batch.size %></dd>
 
               <dt>Brew date</dt>
@@ -19,25 +19,25 @@
               <dt>Bottle date</dt>
               <dd><%= @batch.bottle_date %></dd>
 
-              <dt>Aog</dt>
+              <dt>Actual Original Graavity</dt>
               <dd><%= @batch.aog %></dd>
 
-              <dt>Afg</dt>
+              <dt>Actual Final Gravity</dt>
               <dd><%= @batch.afg %></dd>
 
-              <dt>Aabv</dt>
+              <dt>Actual ABV</dt>
               <dd><%= @batch.aabv %></dd>
 
-              <dt>Aaroma</dt>
+              <dt>Actual Aroma</dt>
               <dd><%= @batch.aaroma %></dd>
 
-              <dt>Aibu</dt>
+              <dt>Actual IBUs</dt>
               <dd><%= @batch.aibu %></dd>
 
               <dt>Image</dt>
               <dd><%= @batch.image %></dd>
 
-              <dt>Aflavpro</dt>
+              <dt>Actual Flavor Profile</dt>
               <dd><%= @batch.aflavpro %></dd>
 
               <dt>User</dt>
@@ -56,7 +56,9 @@
             </div>
 
                 <%= form_tag("/batches/#{params[:id]}/generate_uniques", method:"post") do %>
-                    <div>
+
+                    <br></br>
+                    <div align="right">
                       <label for="new uniques numbers" >Input Number of Unique IDs: </label>
                       <input name="unique_num" type="text" id="first">
                       <input align="right" type="submit" value="Generate IDs">
