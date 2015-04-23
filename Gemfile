@@ -7,7 +7,7 @@ group :production do
   gem 'rails_12factor'
 end
 # Connecting Ruby to Heroku Postgres Database
-gem 'pg'
+# gem 'pg'
 
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'

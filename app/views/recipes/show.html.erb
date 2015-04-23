@@ -7,6 +7,7 @@
         <h3 class="panel-title">Recipe Name: <%= @recipe.name %></h3>
       </div>
       <div class="panel-body">
+      <dt align="center">TARGET PROFILE</dt>
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
@@ -19,31 +20,31 @@
               <dt>Description</dt>
               <dd><%= @recipe.description %></dd>
 
-              <dt>Tog</dt>
+              <dt>Original Gravity</dt>
               <dd><%= @recipe.tog %></dd>
 
-              <dt>Tfg</dt>
+              <dt>Final Gravity</dt>
               <dd><%= @recipe.tfg %></dd>
 
-              <dt>Tabv</dt>
+              <dt>Alcohol by Volume (ABV)</dt>
               <dd><%= @recipe.tabv %></dd>
 
-              <dt>Taroma</dt>
+              <dt>Aroma</dt>
               <dd><%= @recipe.taroma %></dd>
 
-              <dt>Tibu</dt>
+              <dt>Int'l Bitterness Units(IBUs)</dt>
               <dd><%= @recipe.tibu %></dd>
 
               <dt>Label</dt>
               <dd><%= @recipe.label %></dd>
 
-              <dt>Tflavpro</dt>
+              <dt>Flavor Profile</dt>
               <dd><%= @recipe.tflavpro %></dd>
 
               <dt>User</dt>
-              <dd><%= @recipe.user.email %></dd>
+              <dd><%= @recipe.user.username %></dd>
 
-              <dt>Style</dt>
+              <dt>Beer Style</dt>
               <dd><%= @recipe.style.name %></dd>
 
             </dl>
