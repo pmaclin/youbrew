@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :styles
 
   devise_for :users
+
   devise_scope :user do
     root "devise/registrations#edit"
   end
