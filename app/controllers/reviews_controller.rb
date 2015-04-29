@@ -4,18 +4,35 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+  # Display the current user's reviews
+   # if current_user.present?
+   #    @reviews = current_user.reviews
+   #  else
+   #    @reviews = Review.all
+   # end
+   @reviews = Review.all
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    @review = Review.find(params[:id])
   end
 
   # GET /reviews/new
-  def new
+  def new_review
     @review = Review.new
+    @review.headline = params[:headline]
+    @review.content = params[:content]
+    @review.overall_rating = params[:overall_rating]
+    # @review.user_id = [:user_id]
+    # @review.batch_id = params[:batch_id]
+
+    @review.save
+
+    redirect_to reviews_url(@review), notice: "Your review has been saved below."
   end
+
 
   # GET /reviews/1/edit
   def edit

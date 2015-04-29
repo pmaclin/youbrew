@@ -19,25 +19,25 @@
               <dt>Description</dt>
               <dd><%= @recipe.description %></dd>
 
-              <dt>Tog</dt>
+              <dt>Target Original</dt>
               <dd><%= @recipe.tog %></dd>
 
-              <dt>Tfg</dt>
+              <dt>Target Final Gravity</dt>
               <dd><%= @recipe.tfg %></dd>
 
               <dt>Tabv</dt>
               <dd><%= @recipe.tabv %></dd>
 
-              <dt>Taroma</dt>
+              <dt>Target Aroma</dt>
               <dd><%= @recipe.taroma %></dd>
 
-              <dt>Tibu</dt>
+              <dt>Target IBUs</dt>
               <dd><%= @recipe.tibu %></dd>
 
               <dt>Label</dt>
               <dd><%= @recipe.label %></dd>
 
-              <dt>Tflavpro</dt>
+              <dt>Target Flavor Profile</dt>
               <dd><%= @recipe.tflavpro %></dd>
 
               <dt>User</dt>
@@ -58,6 +58,7 @@
         </div>
 <hr>
             <div align="right">
+            <!-- This code lets the newly created batch know from which recipe it came. -->
               Create a new batch: <%= link_to icon('plus'), new_batch_path( :recipe_id => params[:id] ), class: "btn btn-lg btn-success" %>
             </div>
 <hr>

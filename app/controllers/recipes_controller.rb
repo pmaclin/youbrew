@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    # Display on the current user's recipes
+    # Display only the current user's recipes
     if current_user.present?
         @recipes = current_user.recipes
     else

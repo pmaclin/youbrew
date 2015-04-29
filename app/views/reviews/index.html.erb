@@ -1,7 +1,9 @@
 <div class="page-header">
   <h1>
-    Reviews
+    Your Reviews
+    <% if current_user.email == "p1@example.com" %>
     <%= link_to icon('plus'), new_review_path, class: "btn btn-lg btn-success" %>
+    <% end %>
   </h1>
 </div>
 
@@ -15,42 +17,48 @@
 
 <hr>
 
-<div class="row isotope-container">
-<% @reviews.each do |review| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Review #<%= review.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Headline</dt>
-          <dd><%= review.headline %></dd>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">REVIEWS CREATED</div>
 
-          <dt>Content</dt>
-          <dd><%= review.content %></dd>
+    <table class="table" align="left">
+      <thead>
+          <tr>
+              <th>ID#</th>
+              <th>Headline</th>
+              <th>Content</th>
+              <th>Overall Rating</th>
+            <% if current_user.email == "p1@example.com" %>
+              <th>User ID</th>
+              <th>Controls</th>
+              <% end %>
+          </tr>
+      </thead>
+      <tbody>
+      <% @reviews.each do |review| %>
 
-          <dt>Overall rating</dt>
-          <dd><%= review.overall_rating %></dd>
+          <tr>
+            <td><%= review.id %></td>
+            <td><%= review.headline %></td>
+            <td><%= review.content %></td>
+            <td><%= review.overall_rating %></td>
 
-          <!-- <dt>User</dt> -->
-          <dd><%#= review.user_id %></dd>
+          <% if current_user.email == "p1@example.com" %>
+            <td><%= review.user_id %></td>
+            <td>
 
-          <!-- <dt>Batch</dt> -->
-          <dd><%#= review.batch_id %></dd>
-
-        </dl>
-        <div class="btn-group btn-group-justified">
           <%= link_to icon('search-plus'), review, class: "btn btn-primary" %>
 
           <%= link_to icon('edit'), edit_review_url(review), class: "btn btn-warning" %>
 
           <%= link_to icon('trash-o'), review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+
+          <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 </div>
 
 <!-- JavaScript for Isotope layout and quicksearch -->

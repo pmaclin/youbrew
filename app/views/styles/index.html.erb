@@ -1,7 +1,9 @@
 <div class="page-header">
   <h1>
     Beer Styles
-    <%= link_to icon('plus'), new_style_path, class: "btn btn-lg btn-success" %>
+    <% if current_user.email == "p1@example.com" %>
+      <%= link_to icon('plus'), new_style_path, class: "btn btn-lg btn-success" %>
+    <% end %>
   </h1>
   <h4>
     The BJCP style guidelines currently recognize <%= Style.count %> different, distinct, individual and judgeable styles of beer (ales and lagers). Check out the flavor profiles of some of the more popular and widely distributed brands we've included here.  Brewers, use this as your inspiration when planning the 'perfect' recipe.

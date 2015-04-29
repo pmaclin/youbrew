@@ -4,11 +4,11 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    # Display on the current user's batches
-    if current_user.present?
+  # Display on the current user's batches
+  if current_user.present?
         @batches = current_user.batches
     else
-        @batches = Batch.all
+       @batches = Batch.all
     end
   end
 
@@ -16,8 +16,12 @@ class BatchesController < ApplicationController
     params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], rand_num: rand(1000000))
     end
     redirect_to uniques_url(@unique), notice: "Your unqiue numbers are listed below."
-
   end
+
+  # def post_new_review
+  #   params[:headline, :content, :overall_rating ] do Review.create(batch_id: params[:id])
+  #   end
+  # end
 
   # GET /batches/1
   # GET /batches/1.json
