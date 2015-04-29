@@ -25,8 +25,8 @@ class ReviewsController < ApplicationController
     @review.headline = params[:headline]
     @review.content = params[:content]
     @review.overall_rating = params[:overall_rating]
-    # @review.user_id = [:user_id]
-    # @review.batch_id = params[:batch_id]
+    @review.user_id = [:user_id]
+    @review.batch_id = params[:batch_id]
 
     @review.save
 
@@ -86,6 +86,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:headline, :content, :overall_rating, :batch_id)
+      params.require(:review).permit(:headline, :content, :overall_rating, :batch_id, :user_id)
     end
 end
