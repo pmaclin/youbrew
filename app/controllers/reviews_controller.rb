@@ -21,15 +21,16 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new_review
-    @review = Review.new
-    @review.headline = params[:headline]
-    @review.content = params[:content]
-    @review.overall_rating = params[:overall_rating]
-    @review.user_id = [:user_id]
-    @review.batch_id = params[:batch_id]
+    Review.create(batch_id: params[:id], headline: params[:headline], content: params[:content], overall_rating: params[:overall_rating], user_id: params[:user_id] )
+    end
+    # @review = Review.new
+    # @review.headline = params[:headline]
+    # @review.content = params[:content]
+    # @review.overall_rating = params[:overall_rating]
+    # @review.user_id = [:user_id]
+    # @review.batch_id = params[:batch_id]
 
-    @review.save
-
+    # @review.save
     redirect_to reviews_url(@review), notice: "Your review has been saved below."
   end
 
@@ -86,6 +87,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:headline, :content, :overall_rating, :batch_id, :user_id)
+      params.require(:review).permit(:headline, :content, :overall_rating, :batch_id )
     end
 end

@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
   # Routes to CREATE row in REVIEW table
-  post("reviews/:id/post_new_review", { :controller => "reviews", :action => "new_review"})
+  # post("reviews/:id/post_new_review", { :controller => "reviews", :action => "new_review"})
+  # Should this be in batches? Since we're creating a new review for a batch??
+  post("batches/:id/post_new_review", { :controller => "batches", :action => "new_review"})
 
   # Routes to CREATE row in MIRROR table
   get("/mirrors/input", { :controller => "mirrors", :action => "input_form"})
   # get("/match_brew", { :controller => "mirrors", :action => "match_num"})
   get("/match_brew", { :controller => "uniques", :action => "match_num"})
 
-  # Creates new row in uniques table (per the action), from Batch#show
+  # Creates new row in UNIQUES table (per the action generate_uniques), from Batch#show
   post("batches/:id/generate_uniques", { :controller => "batches", :action => "generate_uniques"})
 
   resources :mirrors
