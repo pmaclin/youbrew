@@ -20,7 +20,7 @@ class BatchesController < ApplicationController
 
   def new_review
     Review.create(batch_id: params[:id], headline: params[:headline], content: params[:content], overall_rating: params[:overall_rating], user_id: params[:user_id] )
-    end
+
     # @review = Review.new
     # @review.headline = params[:headline]
     # @review.content = params[:content]
@@ -62,7 +62,7 @@ class BatchesController < ApplicationController
       if @batch.save
         format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
         format.json { render :show, status: :created, location: @batch }
-      else
+        else
         format.html { render :new }
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end

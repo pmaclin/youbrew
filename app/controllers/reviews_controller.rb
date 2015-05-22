@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new_review
     Review.create(batch_id: params[:id], headline: params[:headline], content: params[:content], overall_rating: params[:overall_rating], user_id: params[:user_id] )
-    end
+
     # @review = Review.new
     # @review.headline = params[:headline]
     # @review.content = params[:content]
@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
-      else
+        else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -62,7 +62,7 @@ class ReviewsController < ApplicationController
       if @review.update(review_params)
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
-      else
+        else
         format.html { render :edit }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
