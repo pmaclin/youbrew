@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :recipes
-  has_many :reviews
   has_many :batches
+  has_many :reviews
+  has_many :uniques
+
 
 end
