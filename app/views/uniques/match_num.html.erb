@@ -38,7 +38,11 @@
         <input name="overall_rating" type="text">
         <input name="user_id" type="hidden">
         <input name="batch_id" type="hidden">
-        <input align="right" type="submit" value="Submit Review">
+        <div align="right">
+            <!-- This code lets the newly created batch know from which recipe it came. -->
+              Review this brew: <%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-warning" %>
+        </div>
+        <!-- <input align="right" type="submit" value="Submit Review"> -->
       </div>
   <% end %>
 

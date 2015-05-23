@@ -34,6 +34,11 @@ class ReviewsController < ApplicationController
     redirect_to reviews_url(@review), notice: "Your review has been saved below."
   end
 
+  def new
+    # @review = Review.new(batch_id: params[:batch_id])
+    @review = Review.new(batch_id: params[:batch_id])
+  end
+
 
   # GET /reviews/1/edit
   def edit
@@ -46,7 +51,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review, notice: 'Your review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
         else
         format.html { render :new }
