@@ -18,6 +18,8 @@ gem 'devise'
 
 gem 'seed_dump'
 
+gem 'carrierwave'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
