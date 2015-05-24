@@ -20,6 +20,8 @@ gem 'seed_dump'
 
 gem 'carrierwave'
 
+gem 'kaminari'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

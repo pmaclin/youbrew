@@ -5,9 +5,9 @@
       <%= link_to icon('plus'), new_style_path, class: "btn btn-lg btn-success" %>
     <% end %>
   </h1>
-  <h4>
+  <h5>
     The BJCP style guidelines currently recognize <%= Style.count %> different, distinct, individual and judgeable styles of beer (ales and lagers). Check out the flavor profiles of some of the more popular and widely distributed brands we've included here.  Brewers, use this as your inspiration when planning the 'perfect' recipe.
-  </h4>
+  </h5>
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
@@ -18,7 +18,11 @@
   </div>
 </div>
 
-<hr>
+<div class="row">
+  <div class="col-xs-12">
+  <%= paginate(@styles) %>
+  </div>
+</div>
 
 <div class="row isotope-container">
 <% @styles.each do |style| %>

@@ -4,7 +4,7 @@ class StylesController < ApplicationController
   # GET /styles
   # GET /styles.json
   def index
-    @styles = Style.all
+    @styles = Style.order("name ASC").page(params[:page]).per(7)
   end
 
   # GET /styles/1
