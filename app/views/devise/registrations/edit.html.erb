@@ -99,7 +99,7 @@
  -->
 <br>
       <%= f.input :city, required: false %>
-      <%= f.input :state, collection: [ "AL", "AK", "AZ", "AR", "IL"], autocomplete: "on", required: false %>
+      <%= f.input :state, collection: [ "AL", "AK", "AZ", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "AR", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"], autocomplete: "on", required: false %>
       <%= f.input :yrsexp, collection: 0..40, hint: "How many years have you been home brewing?", required: false %>
       <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
       <%= f.input :quote, hint: "Add a quote.", required: false %>
