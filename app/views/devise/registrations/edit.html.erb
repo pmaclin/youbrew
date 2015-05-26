@@ -5,6 +5,7 @@
       <body>
 
       <h2>Hi, <%= current_user.username %>!</h2>
+      <dd><%#= image_tag @user.avatar, :class => "img-responsive" %></dd>
 
         <div class="row">
           <p align="left"><% if current_user.recipes.count < 3 %><font color="red"> MESSAGES:</font>
@@ -69,10 +70,26 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
+
+          <%= f.input :avatar, autocomplete: "off", hint: "upload your image from your computer.", required: false %>
+            <div class="row">
+              <div class="col-lg-3">
+                <dd><%= image_tag @user.avatar, :class => "img-responsive" %></dd>
+                <dd><%= @user.username %></dd>
+              </div>
+              <div class="col-lg-9">
+                <li>City: <%= @user.city %></li>
+                <li>State: <%= @user.state %></li>
+                <li>Years Brewing: 7<%=  %></li>
+                <li>Quote: "Beer is proof that God loves us and wants us to be happy."</li>
+              </div>
+            </div>
+
+<br>
       <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
       <%= f.input :password_confirmation, required: false %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    </div>
+
 
     <div class="form-actions">
       <%= f.button :submit, "Update" %>
