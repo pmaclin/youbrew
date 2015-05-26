@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401154236) do
+ActiveRecord::Schema.define(version: 20150526151456) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "size"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20150401154236) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
