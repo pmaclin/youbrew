@@ -1,14 +1,3 @@
-<%# if @m.present? %>
-<!--   We have a match!! -->
-<%# else %>
-  <!-- Sorry...no match here. Please try again! -->
-<%# end %>
-
-<%# if @u.present? %>
-  <!-- This number matches something in Uniques... -->
-<%# else %>
-  <!-- Sorry....no match! Please try again. -->
-<%# end %>
 
 <% if @u.present? %>
   <h1>We have a match!!</h1> You've made a match for brew ID#: <%= @u.rand_num %>
@@ -47,7 +36,8 @@
   <% #end %>
 
 <% else %>
-  <h1>Sorry!</h1> <%= params[:new_number] %> doesn't match one of our brews. Please try again.
+  <h1>Awwwwww!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
+<%= params[:new_number] %> doesn't match any of the brews in our database. Please click on Rate a Brew in the menu above and try again!
 <% end %>
 
 

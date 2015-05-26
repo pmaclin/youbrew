@@ -4,13 +4,25 @@
 
       <body>
 
-      <h2>Hi, <%= current_user.username %>!</h2>
+      <h2 align="left">Hi, <%= current_user.username %>!</h2>
       <dd><%#= image_tag @user.avatar, :class => "img-responsive" %></dd>
 
         <div class="row">
           <p align="left"><% if current_user.recipes.count < 3 %><font color="red"> MESSAGES:</font>
-          "Hey! You've only created <%= current_user.recipes.count %> recipe(s) so far? You need to add more recipes. Let's get brewing!" </p>
+          "Hey! You've only created <%= current_user.recipes.count %> recipe(s) so far? You need to add more recipes and create more batches. Let's get brewing!" </p>
           <% end %>
+            <div class="row">
+              <div class="col-lg-3">
+                <dd><%= image_tag @user.avatar, :class => "img-responsive" %></dd>
+                <dd><%= @user.username %></dd>
+              </div>
+              <div class="col-lg-9 text-left">
+                <li>City: <%= @user.city %></li>
+                <li>State: <%= @user.state %></li>
+                <li># Years Brewing: <%= @user.yrsexp %></li>
+                <li>Quote:<i> "<%= @user.quote %>"</i></li>
+              </div>
+            </div>
             <div class="list-group" align="left">
               <a href="#" class="list-group-item active">
               YOUR STATS
@@ -21,7 +33,7 @@
 
                 <a href="#" class="list-group-item">Number of reviews from your batches: <span class="badge">2<%#= current_user.reviews.count %></span></a>
                 <a href="#" class="list-group-item">Number of times your recipes have been liked: <span class="badge">17</span></a>
-                <a href="#" class="list-group-item">Your most like recipe: <span class="badge">American Stout</span></a>
+                <a href="#" class="list-group-item">Your most liked recipe: <span class="badge">American Stout</span></a>
                 <a href="#" class="list-group-item">The beer style in most of your recipes: <span class="badge">Belgian Ale</span></a>
                 <a href="#" class="list-group-item">The beer style you've most frequently reviewed : <span class="badge">American Stout</span></a>
               <% elsif current_user.recipes.count < 1 %>
@@ -72,23 +84,29 @@
 
 
           <%= f.input :avatar, autocomplete: "off", hint: "upload your image from your computer.", required: false %>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-lg-3">
-                <dd><%= image_tag @user.avatar, :class => "img-responsive" %></dd>
+                <dd><%#= image_tag @user.avatar, :class => "img-responsive" %></dd>
                 <dd><%= @user.username %></dd>
               </div>
               <div class="col-lg-9">
                 <li>City: <%= @user.city %></li>
                 <li>State: <%= @user.state %></li>
-                <li>Years Brewing: 7<%=  %></li>
-                <li>Quote: "Beer is proof that God loves us and wants us to be happy."</li>
+                <li># Years Brewing: <%= @user.yrsexp %></li>
+                <li>Quote:<i> "<%= @user.quote %>"</i></li>
               </div>
             </div>
-
+ -->
 <br>
+      <%= f.input :city, required: false %>
+      <%= f.input :state, collection: [ "AL", "AK", "AZ", "AR", "IL"], autocomplete: "on", required: false %>
+      <%= f.input :yrsexp, collection: 0..40, hint: "How many years have you been home brewing?", required: false %>
       <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+      <%= f.input :quote, hint: "Add a quote.", required: false %>
       <%= f.input :password_confirmation, required: false %>
       <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+
+
 
 
     <div class="form-actions">
