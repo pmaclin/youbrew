@@ -27,29 +27,31 @@
                 <a href="#" class="list-group-item">The beer style you've most frequently reviewed : <span class="badge">American Stout</span></a>
               <% end %>
             </div>
-                  <div class="row">
-                    <div class="col-md-12" align="left">
-                      <h4 align="left">Have a brew to review?</h4>
-                        <form action="http://localhost:3000/match_unique_num" method="get">
-                          Enter a brew number: <input type="text" name="match_unique_num">
-                          <input type="submit" value="Submit"><br>
-                        </form>
-                    </div>
-                  </div>
+
+            <div class="row">
+              <div class="col-md-12" align="left">
+<!--                 <h4 align="left">Have a brew to review?</h4>
+                  <form action="http://localhost:3000/match_unique_num" method="get">
+                    Enter a brew number: <input type="text" name="match_unique_num">
+                    <input type="submit" value="Submit"><br>
+                  </form> -->
+              </div>
+            </div>
 
                   <hr>
 
-                  <div class="row" align="left">
-                    <div class="col-md-12" align="left">
-                    <h4 align="left">Your BEERography</h4>
-                      <ol align="left">
-                        <% recipes = Recipe.where({ :user_id => current_user })  %>
-                          <% recipes.each do |recipe| %>
-                        <li><%= recipe.name %><small>, an <%= recipe.style.name %></small></li>
-                        <% end %>
-                      </ol>
-                    </div>
-                  </div>
+            <div class="row" align="left">
+              <div class="col-md-12" align="left">
+              <h4 align="left">Your BEERography</h4>
+                <ol align="left">
+                  <% recipes = Recipe.where({ :user_id => current_user })  %>
+                    <% recipes.each do |recipe| %>
+                  <li><%= recipe.name %><small>, an <%= recipe.style.name %></small></li>
+                  <% end %>
+                </ol>
+              </div>
+            </div>
+
           </div>
       </body>
     </div>

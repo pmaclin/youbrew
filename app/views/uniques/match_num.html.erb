@@ -24,27 +24,27 @@
       <li>Aroma: <%= @u.batch.aaroma %></li>
       <li>IBUs: <%= @u.batch.aibu %></li>
       <li>Flavor Profile: <%= @u.batch.aflavpro %></li>
-      <li>Image: <%= @u.batch.image %></li>
+      <li>Image: <%= image_tag @u.batch.image %></li>
     </ul>
 
-<h1>Review this brew!</h1>
-  <%= form_tag("/batches/#{params[:id]}/post_new_review", method:"post") do %>
+<div class="row">
+  <div class="col-lg-6">
+    <h1 align="right">Review this brew! <%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-success" %></h1>
+  </div>
+  <div class="col-lg-6">
+
+  </div>
+</div>
+
+
+  <%#= form_tag("/batches/#{params[:id]}/post_new_review", method:"post") do %>
   <!-- <%#= form_tag("/reviews/#{params[:id]}/post_new_review", method:"post") do %> -->
-    <br><br>
-      <div align="right">
-        <label for="first">Review the brew</label>
-        <input name="headline" type="text" id="first" rows="1" cols="30" placeholder="Add headline...">
-        <input name="content" type="text_area" rows="1" cols="30" placeholder="Tell us about your brew experience...">
-        <input name="overall_rating" type="text">
-        <input name="user_id" type="hidden">
-        <input name="batch_id" type="hidden">
-        <div align="right">
-            <!-- This code lets the newly created batch know from which recipe it came. -->
-              Review this brew: <%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-warning" %>
-        </div>
+<br>
+
+
         <!-- <input align="right" type="submit" value="Submit Review"> -->
-      </div>
-  <% end %>
+      <!-- </div> -->
+  <% #end %>
 
 <% else %>
   <h1>Sorry!</h1> <%= params[:new_number] %> doesn't match one of our brews. Please try again.

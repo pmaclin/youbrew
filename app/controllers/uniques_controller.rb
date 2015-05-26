@@ -4,7 +4,8 @@ class UniquesController < ApplicationController
   # GET /uniques
   # GET /uniques.json
   def index
-    @uniques = Unique.all
+    # @uniques = Unique.all
+    @uniques = Unique.page(params[:page]).per(7)
   end
 
   # def generate_rand_num
