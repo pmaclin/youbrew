@@ -1,6 +1,6 @@
 
 <% if @u.present? %>
-  <h1>We have a match!!</h1> You've made a match for brew ID#: <%= @u.rand_num %>
+  <h1>We have a match!!<span aria-hidden="true" class="fa fa-beer"></span></h1> You've made a match for brew ID#: <%= @u.rand_num %>
     <ul>
       <li>Batch ID#: <%= @u.batch_id %></li>
       <li>Brewer's name: <%= @u.batch.recipe.user.username %></li>
@@ -13,7 +13,7 @@
       <li>Aroma: <%= @u.batch.aaroma %></li>
       <li>IBUs: <%= @u.batch.aibu %></li>
       <li>Flavor Profile: <%= @u.batch.aflavpro %></li>
-      <li>Image: <%= image_tag @u.batch.image %></li>
+      <li>Image: <%= image_tag @u.batch.image, :class => "img-responsive" %></li>
     </ul>
 
 <div class="row">
