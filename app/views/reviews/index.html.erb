@@ -17,10 +17,12 @@
 
 <hr>
 
-<hr>
+
+<div class="container">
 <div class="panel panel-default">
   <div class="panel-heading">REVIEWS CREATED</div>
-
+    <div class="row isotope-container">
+    <div class="col-xs-12">
     <table class="table" align="left">
       <thead>
           <tr>
@@ -35,6 +37,7 @@
           </tr>
       </thead>
       <tbody>
+      <div class="container">
       <% @reviews.each do |review| %>
 
           <tr>
@@ -57,9 +60,13 @@
             </td>
           </tr>
       <% end %>
+      </div> <!-- end div container -->
       </tbody>
     </table>
-</div>
+    </div> <!-- div col xs 12 -->
+    </div> <!-- div row isotope container-->
+</div> <!-- div panel panel-default -->
+</div> <!-- end div container -->
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>

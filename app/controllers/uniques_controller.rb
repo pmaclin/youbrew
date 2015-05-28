@@ -4,8 +4,16 @@ class UniquesController < ApplicationController
   # GET /uniques
   # GET /uniques.json
   def index
-    # @uniques = Unique.all
-    @uniques = Unique.page(params[:page]).per(7)
+    # @uniques = Unique.new(unique_params)
+    # @uniques.user = current_user
+
+    # if current_user.present?
+    #     @uniques = current_user.uniques
+    #   else
+    #   # @uniques = Unique.page(params[:page]).per(7)
+    #   @uniques = Unique.all
+    # end
+    @uniques = Unique.all
   end
 
   # def generate_rand_num
@@ -45,10 +53,28 @@ class UniquesController < ApplicationController
   def edit
   end
 
+  # def generate_uniques
+  #   params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], rand_num: rand(1000000))
+  #     @unique = Unique.new(unique_params)
+
+  #       respond_to do |format|
+  #         if @unique.save
+  #           format.html { redirect_to @unique, notice: 'Unique was successfully created.' }
+  #           format.json { render :show, status: :created, location: @unique }
+  #           else
+  #           format.html { render :new }
+  #           format.json { render json: @unique.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #   end
+  #   redirect_to uniques_url(@unique), notice: "Your unqiue numbers are listed below ;]"
+  # end
+
   # POST /uniques
   # POST /uniques.json
-  def create
+  def creates
     @unique = Unique.new(unique_params)
+    @unique.user = current_user
 
     respond_to do |format|
       if @unique.save

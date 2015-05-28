@@ -19,13 +19,13 @@
               <dt>Bottle date</dt>
               <dd><%= @batch.bottle_date %></dd>
 
-              <dt>Actual Original Graavity</dt>
+              <dt>Original Gravity</dt>
               <dd><%= @batch.aog %></dd>
 
               <dt>Final Gravity</dt>
               <dd><%= @batch.afg %></dd>
 
-              <dt>ABV</dt>
+              <dt>Alchohol by Volume(ABV)</dt>
               <dd><%= @batch.aabv %></dd>
 
               <dt>Aroma</dt>
@@ -54,8 +54,8 @@
 
               <%= link_to icon('trash-o'), @batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
             </div>
-
                 <%= form_tag("/batches/#{params[:id]}/generate_uniques", method:"post") do %>
+                <%#= form_tag("/uniques/#{params[:id]}/generate_uniques", method:"post") do %>
 
                     <br></br>
                     <div align="right">

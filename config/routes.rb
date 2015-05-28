@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   # Creates new row in UNIQUES table (per the action generate_uniques), from Batch#show
   post("batches/:id/generate_uniques", { :controller => "batches", :action => "generate_uniques"})
 
+  # post("uniques/:id/generate_uniques", { :controller => "uniques", :action => "generate_uniques"})
+
+
+
   resources :mirrors
 
   resources :uniques

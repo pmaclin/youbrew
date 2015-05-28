@@ -5,12 +5,12 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
   # Display the current user's reviews
-   # if current_user.present?
-   #    @reviews = current_user.reviews
-   #  else
-   #    @reviews = Review.all
-   # end
-   @reviews = Review.all
+   if current_user.present?
+      @reviews = current_user.reviews
+    else
+      @reviews = Review.all
+   end
+   # @reviews = Review.all
   end
 
   # GET /reviews/1
@@ -48,10 +48,11 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.user = current_user
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Your review was successfully created.' }
+        format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
         format.json { render :show, status: :created, location: @review }
         else
         format.html { render :new }
