@@ -5,7 +5,7 @@
     <%= link_to icon('plus'), new_unique_path, class: "btn btn-lg btn-success" %>
     <% end %>
   </h1>
-  <h5>Brewers - Apply a unique number to a bottle of beer that you'd like reviewed. Your fans will come back to the site, input the number, access the brew's profile and review it.</h5>
+  <h5>Brewers - Apply the unique number that corresponds to the batch you're sharing. Write it on the bottle of beer, or on the cap, the label or where ever your fan can see it.  Your fans will come back to the site, input the number, access the brew's profile and review it.</h5>
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
@@ -16,9 +16,6 @@
   </div>
 </div> -->
 
-<hr>
-
-<hr>
 <div class="panel panel-default">
   <div class="panel-heading">UNIQUE NUMBERS CREATED</div>
 
@@ -26,7 +23,8 @@
       <thead>
           <tr>
               <th>ID#</th>
-              <th>Batch#</th>
+              <th>Image/Label</th>
+              <th>Brew Date</th>
               <th>Recipe Name</th>
               <th>Unique Number</th>
               <% if current_user.email == "p1@example.com" %>
@@ -41,7 +39,8 @@
 
           <tr>
             <td><%= unique.id %></td>
-            <td><%= unique.batch_id %></td>
+            <td><%= image_tag unique.batch.image, :height => '50px', :width => '50px' %></td>
+            <td><%= unique.batch.brew_date %></td>
             <td><%= unique.batch.recipe.name %></td>
             <td><%= unique.rand_num %></td>
 

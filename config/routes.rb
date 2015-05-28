@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Routes to CREATE row in REVIEW table
   # post("reviews/:id/post_new_review", { :controller => "reviews", :action => "new_review"})
   # Should this be in batches? Since we're creating a new review for a batch??
-  post("batches/:id/post_new_review", { :controller => "batches", :action => "new_review"})
+  # post("batches/:id/post_new_review", { :controller => "batches", :action => "new_review"})
 
   # Routes to CREATE row in MIRROR table
   get("/mirrors/input", { :controller => "mirrors", :action => "input_form"})

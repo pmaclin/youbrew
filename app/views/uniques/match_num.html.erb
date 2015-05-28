@@ -52,7 +52,7 @@
               <dt>Description: </dt>
               <dd><%= @u.batch.aflavpro %></dd>
 
-<hr>
+<hr>          <!-- Creates a new review from an existing batch -->
               <h1 align="left">Review this brew!<%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-success" %></h1>
             </dl>
 
@@ -72,7 +72,7 @@
   <%# end %>
 
 <% else %>
-  <h1>Awwwwww!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
+  <h1>Awwwwww Man!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
 <%= params[:new_number] %> doesn't match any of the brews in our database. Please click on <%= link_to "Rate-a-Brew", "/mirrors/input" %> and try again!
 <% end %>
 

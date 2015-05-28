@@ -16,6 +16,9 @@
               <dt>Batch</dt>
               <dd><%= @unique.batch_id %></dd>
 
+              <dt>Image</dt>
+              <dd><%= image_tag @unique.batch.image, :height => '25%', :width => '25%'  %></dd>
+
             </dl>
             <div class="btn-group btn-group-justified">
               <%= link_to icon('chevron-left'), uniques_path, class: "btn btn-primary" %>

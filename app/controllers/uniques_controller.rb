@@ -3,17 +3,18 @@ class UniquesController < ApplicationController
 
   # GET /uniques
   # GET /uniques.json
+  # Displays the Uniques
   def index
-    # @uniques = Unique.new(unique_params)
-    # @uniques.user = current_user
+  # Display only the current user's uniques
+    # @unique = Unique.new(unique_params)
+    # @unique.user = current_user
 
-    # if current_user.present?
-    #     @uniques = current_user.uniques
-    #   else
-    #   # @uniques = Unique.page(params[:page]).per(7)
-    #   @uniques = Unique.all
-    # end
-    @uniques = Unique.all
+      if current_user.present?
+          @uniques = current_user.uniques
+        else
+        @uniques = Unique.all
+      end
+      # @uniques = Unique.all
   end
 
   # def generate_rand_num
@@ -45,9 +46,9 @@ class UniquesController < ApplicationController
   end
 
   # GET /uniques/new
-  def new
-    @unique = Unique.new
-  end
+  # def new
+  #   @unique = Unique.new
+  # end
 
   # GET /uniques/1/edit
   def edit
@@ -72,20 +73,20 @@ class UniquesController < ApplicationController
 
   # POST /uniques
   # POST /uniques.json
-  def creates
-    @unique = Unique.new(unique_params)
-    @unique.user = current_user
+  # def create
+  #   @unique = Unique.new(unique_params)
+  #   @unique.user = current_user
 
-    respond_to do |format|
-      if @unique.save
-        format.html { redirect_to @unique, notice: 'Unique was successfully created.' }
-        format.json { render :show, status: :created, location: @unique }
-      else
-        format.html { render :new }
-        format.json { render json: @unique.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @unique.save
+  #       format.html { redirect_to @unique, notice: 'Unique was successfully created.' }
+  #       format.json { render :show, status: :created, location: @unique }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @unique.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /uniques/1
   # PATCH/PUT /uniques/1.json
