@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rand_num: 1
+  batch_id: 
+  user_id: 
+
+two:
+  rand_num: 1
+  batch_id: 
+  user_id: 

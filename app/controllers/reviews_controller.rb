@@ -36,7 +36,6 @@ class ReviewsController < ApplicationController
 
 
   def new
-    # @review = Review.new(batch_id: params[:batch_id])
     @review = Review.new(batch_id: params[:batch_id])
   end
 

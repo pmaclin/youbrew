@@ -36,8 +36,6 @@ class UniquesController < ApplicationController
     # @m = Mirror.find_by({ :mrand_num => params[:new_number] })
     @u = Unique.find_by({ :rand_num => params[:new_number] })
     @u = Unique.find_by_rand_num(params[:new_number])
-
-
   end
 
   # GET /uniques/1

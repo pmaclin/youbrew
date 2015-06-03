@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :batches
   has_many :reviews
   has_many :uniques
+  has_many :unis
 
 
 end

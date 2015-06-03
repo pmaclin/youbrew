@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527174122) do
+ActiveRecord::Schema.define(version: 20150601190944) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "size"
@@ -88,10 +88,20 @@ ActiveRecord::Schema.define(version: 20150527174122) do
     t.integer  "batch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
   add_index "uniques", ["batch_id"], name: "index_uniques_on_batch_id"
+
+  create_table "unis", force: :cascade do |t|
+    t.integer  "rand_num"
+    t.integer  "batch_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "unis", ["batch_id"], name: "index_unis_on_batch_id"
+  add_index "unis", ["user_id"], name: "index_unis_on_user_id"
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

@@ -7,6 +7,7 @@ class Batch < ActiveRecord::Base
 
   has_many :reviews
   has_many :uniques
+  has_many :unis
 
   validates :brew_date, :presence => true
   validates :bottle_date, :presence => true

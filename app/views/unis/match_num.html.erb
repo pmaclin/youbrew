@@ -1,0 +1,81 @@
+
+<% if @u.present? %>
+  <h1 align="center">We have a match!!<span aria-hidden="true" class="fa fa-beer"></span></h1> <h2 align="center">You've made a match for brew ID#: <%= @u.rand_num %></h2>
+
+  <div class="row">
+  <!-- <div class="col-lg-6">
+    <h1 align="right">Review this brew! <%#= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-success" %></h1>
+  </div> -->
+
+  <div class="col-lg-12">
+  <div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Batch ID#<%= @u.batch_id %> | <%= @u.batch.recipe.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <dl class="dl-horizontal">
+              <!-- <dt>Recipe: </dt> -->
+              <dd><%#= @u.batch.recipe.name %></dd>
+
+              <dt>The Brewer: </dt>
+              <dd><%= image_tag @u.batch.user.avatar, :class => "img-responsive" %></dd>
+              <dd><%= @u.batch.recipe.user.username %></dd>
+
+              <dt>Brew date: </dt>
+              <dd><%= @u.batch.brew_date %></dd>
+
+              <dt>Bottle date: </dt>
+              <dd><%= @u.batch.bottle_date %></dd>
+
+              <dt>Actual Original Graavity: </dt>
+              <dd><%= @u.batch.aog %></dd>
+
+              <dt>Final Gravity: </dt>
+              <dd><%= @u.batch.afg %></dd>
+
+              <dt>ABV: </dt>
+              <dd><%= @u.batch.aabv %>%</dd>
+
+              <dt>Aroma: </dt>
+              <dd><%= @u.batch.aaroma %></dd>
+
+              <dt>IBUs: </dt>
+              <dd><%= @u.batch.aibu %></dd>
+
+              <dt></dt>
+              <dd><%= image_tag @u.batch.image, :class => "img-responsive" %></dd>
+
+              <dt>Description: </dt>
+              <dd><%= @u.batch.aflavpro %></dd>
+
+<hr>          <!-- Creates a new review from an existing batch -->
+              <h1 align="left">Review this brew!<%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-success" %></h1>
+            </dl>
+
+              </div> <!-- end div column -->
+            </div> <!-- end div row -->
+          </div> <!-- end div panel body -->
+      </div> <!-- end div class panel -->
+    </div> <!-- end div col offset -->
+  </div> <!-- end div row -->
+</div> <!-- end div col-lg-6 -->
+
+
+  <%#= form_tag("/batches/#{params[:id]}/post_new_review", method:"post") do %>
+  <!-- <%#= form_tag("/reviews/#{params[:id]}/post_new_review", method:"post") do %> -->
+        <!-- <input align="right" type="submit" value="Submit Review"> -->
+      <!-- </div> -->
+  <%# end %>
+
+<% else %>
+  <h1>Say, What!?!?!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
+<%= params[:new_number] %> doesn't match any of the brews in our database. Please click on <%= link_to "Rate-a-Brew", "/mirrors/input" %> and try again!
+<% end %>
+
+
+
+

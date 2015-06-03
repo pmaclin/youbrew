@@ -17,8 +17,18 @@ class BatchesController < ApplicationController
     params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], user_id: params[:id], rand_num: rand(1000000))
     end
 
-    redirect_to uniques_url(@unique), notice: "Your unqiue numbers are listed below ;)"
+    redirect_to uniques_url(@unique), notice: "Your unique numbers are listed below ;)"
   end
+
+    # This action creates the uni IDs and displays them on the Uni Index page
+  def generate_unis
+    params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
+    end
+
+    redirect_to unis_url(@uni), notice: "Your uni numbers are listed below ;)"
+  end
+
+
 
   # def new_review
   #   Review.create(batch_id: params[:id], headline: params[:headline], content: params[:content], overall_rating: params[:overall_rating], user_id: params[:user_id] )

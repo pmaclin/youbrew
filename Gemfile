@@ -22,6 +22,8 @@ gem 'carrierwave'
 
 gem 'kaminari'
 
+gem 'foreigner'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
