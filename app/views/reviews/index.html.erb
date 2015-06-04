@@ -8,15 +8,11 @@
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
-
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12">
     <input type="text" id="quicksearch" placeholder="Search Reviews (start typing)" class="form-control">
   </div>
-</div>
-
-<hr>
-
+</div> -->
 
 <div class="container">
 <div class="panel panel-default">
@@ -27,6 +23,7 @@
       <thead>
           <tr>
               <th>ID#</th>
+              <!-- <th>Brew</th> -->
               <th>Headline</th>
               <th>Content</th>
               <th>Overall Rating</th>
@@ -42,6 +39,7 @@
 
           <tr>
             <td><%= review.id %></td>
+            <td><%#= review. %></td>
             <td><%= review.headline %></td>
             <td><%= review.content %></td>
             <td><%= review.overall_rating %></td>

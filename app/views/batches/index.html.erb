@@ -1,82 +1,58 @@
 <div class="page-header">
   <h1>
-    My Batches
+    Your Batches
+    <% if current_user.email == "p1@example.com" %>
+    <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
+    <% end %>
   </h1>
-    <!-- <h3>Create a New Batch <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
-    </h3> -->
+  <h5>Brewers - Access your batch information here.  Use the controls to access batch details, or to edit batch characteristics.</h5>
 </div>
 
-<!-- Responsive, Isotope-based layout example -->
-
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-8">
     <input type="text" id="quicksearch" placeholder="Search Batches (start typing)" class="form-control">
   </div>
-</div>
+</div> -->
 
-<hr>
+<div class="panel panel-default">
+  <div class="panel-heading">Your Batches</div>
 
-<div class="row isotope-container">
-<% @batches.each do |batch| %>
-<%# r = Recipe.find_by({ :id => batch.recipe_id }) %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-6 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title" align="center">Batch ID#<%= batch.id %> | <small>From the recipe: <%= batch.recipe.name %></small></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Size of the batch (in U.S. gallons)</dt>
-          <dd><%= batch.size %></dd>
+    <table class="table" align="left">
+      <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Brewed</th>
+            <th>Bottled</th>
+            <th>O.G.</th>
+            <th>F.G.</th>
+            <th>A.B.V.</th>
+            <th>Controls</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @batches.each do |batch| %>
+          <tr>
+            <td><%= batch.id %></td>
+            <td><%= image_tag batch.image, :height => '50px', :width => '50px' %></td>
+            <td><%= batch.brew_date %></td>
+            <td><%= batch.bottle_date %></td>
+            <td><%= batch.aog %></td>
+            <td><%= batch.afg %></td>
+            <td><%= batch.aabv %></td>
+            <td>
+              <%= link_to icon('search-plus'), batch, class: "btn btn-primary" %>
 
-          <dt>When did you brew this batch?</dt>
-          <dd><%= batch.brew_date %></dd>
+              <%= link_to icon('edit'), edit_batch_url(batch), class: "btn btn-warning" %>
 
-          <dt>When did you bottle or keg this batch?</dt>
-          <dd><%= batch.bottle_date %></dd>
+              <%= link_to icon('trash-o'), batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
+            </td>
 
-          <dt>Actual Original Gravity </dt>
-          <dd><%= batch.aog %></dd>
-
-          <dt>Actual Final Gravity</dt>
-          <dd><%= batch.afg %></dd>
-
-          <dt>Actual ABV</dt>
-          <dd><%= batch.aabv %></dd>
-
-          <dt>Actual Aroma</dt>
-          <dd><%= batch.aaroma %></dd>
-
-          <dt>Actual IBUs</dt>
-          <dd><%= batch.aibu %></dd>
-
-          <dt>Image</dt>
-          <dd><%= image_tag batch.image, :class => "img-responsive" %></dd>
-
-          <dt>Actual Flavor Profile</dt>
-          <dd><%= batch.aflavpro %></dd>
-
-          <!-- <dt>User</dt> -->
-          <!-- <dd><%#= batch.user.email %></dd> -->
-
-          <!-- <dt>Recipe</dt> -->
-          <!-- Creating an intermediate variable; using the fk for lookup to find the row, then we rape and pillage it. -->
-          <%# r = Recipe.find_by({ :id => batch.recipe_id }) %>
-          <!-- <dd><%#= r.name %></dd> -->
-
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <%= link_to icon('search-plus'), batch, class: "btn btn-primary" %>
-
-          <%= link_to icon('edit'), edit_batch_url(batch), class: "btn btn-warning" %>
-
-          <%= link_to icon('trash-o'), batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
-        </div>
-      </div>
-    </div>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-<% end %>
 </div>
 
 <!-- JavaScript for Isotope layout and quicksearch -->

@@ -3,17 +3,17 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :brew_type, collection: [ "Extract", "Extract w/Special Grains", "Partial or Mini-Mash", "All-Grain!"] %>
-    <%= f.input :description %>
-    <%= f.input :tog %>
-    <%= f.input :tfg %>
-    <%= f.input :tabv %>
-    <%= f.input :taroma %>
-    <%= f.input :tibu %>
+    <%= f.input :brew_type, hint: "Select the type of brew from the dropdown options.", collection: [ "Extract", "Extract w/Special Grains", "Partial or Mini-Mash", "All-Grain!"] %>
+    <%= f.input :description, hint: "Provide an overall description of the beer." %>
+    <%= f.input :tog, label: 'Original Gravity', hint: 'Add the target O.G.' %>
+    <%= f.input :tfg, label: 'Final Gravity', hint: 'Add the target F.G.' %>
+    <%= f.input :tabv, label: 'Alcohol By Volume', hint: 'Add the target abv. Calculate this by using the O.G. and F.G. values' %>
+    <%= f.input :taroma, label: 'Aroma' %>
+    <%= f.input :tibu, label: "IBU's", hint: 'International Bitterness Units' %>
     <%= f.input :label %>
-    <%= f.input :tflavpro %>
+    <%= f.input :tflavpro, label: "Recipe's target flavor profile.", hint: "What's the beer supposed to taste, and feel like?" %>
     <%#= f.association :user %>
-    <%= f.association :style %>
+    <%= f.association :style, label: 'Style of the beer', hint: "Select the style from the dropdown options." %>
   </div>
 
   <div class="form-actions">
