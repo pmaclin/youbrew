@@ -47,7 +47,12 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    # render :text => params.to_s and return
+
+    # params[:batch_id]
+
     @review = Review.new(review_params)
+    # @review = Review.new(review_params)
     @review.user = current_user
 
     respond_to do |format|

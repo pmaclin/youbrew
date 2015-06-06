@@ -53,7 +53,7 @@
               <dd><%= @u.batch.aflavpro %></dd>
 
 <hr>          <!-- Creates a new review from an existing batch -->
-              <h1 align="left">Review this brew!<%= link_to icon('plus'), new_review_path( :batch_id => @u.batch_id ), class: "btn btn-lg btn-success" %></h1>
+              <h1 align="left">Review this brew!<%= link_to icon('plus'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></h1>
             </dl>
 
               </div> <!-- end div column -->
