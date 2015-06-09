@@ -92,28 +92,27 @@
 <div class="row">
 
     <div class="col-xs-12 col-md-3 col-lg-4">
-
       <div class="list-group">
-        <a href="#" class="list-group-item active">
-        What's Brewing Now?<span class="badge">184</span>
+        <a href="#" class="list-group-item active"><h4>
+        What's Brewing?</h4><span class="badge"></span>
         </a>
+        <a href="#" class="list-group-item">No. Recipes Uploaded <span class="badge">159<%#= recipe.count %></span></a>
+        <a href="#" class="list-group-item">No. Batches Made <span class="badge">124<%#= user.batches.count %></span></a>
         <a href="#" class="list-group-item">Stouts <span class="badge">47</span></a>
         <a href="#" class="list-group-item">Barley Wines <span class="badge">18</span></a>
         <a href="#" class="list-group-item">India Pale Ales <span class="badge">95</span></a>
         <a href="#" class="list-group-item">Summer Wheat Beers <span class="badge">4</span></a>
         <a href="#" class="list-group-item">Most reviewed style: <span class="badge">India Pale Ale</span></a>
         <a href="#" class="list-group-item">Highest rated style (average):<span class="badge">4/5</span></a>
-
       </div>
     </div>
 
+
       <div align="center" class="col-md-4">
-        <!-- <h4 align="center">Have a brew to review?</h4> -->
-<!--         <form action="http://localhost:3000/match_unique_num" method="get">
-          Enter a brew number: <input type="text" name="match_unique_num">
-          <input type="submit" value="Submit"><br>
-        </form>
-        <%= @num %> -->
+        <% recipes = Recipe.where({ :style => "Imperial Stout" })  %>
+                    <% recipes.each do |recipe| %>
+                  <li><%= recipe.name %><small></li>
+                  <% end %>
       </div>
 
       <div align="center" class="col-md-6 col-lg-4">
@@ -125,10 +124,10 @@
 </div>
 <hr>
 
-<div class="row">
+<!-- <div class="row">
     <div align="center" class="col-md-6 col-lg-6">
 
-    </div>
+    </div> -->
 
 
 <!--     <div class="col-xs-6 col-md-3">

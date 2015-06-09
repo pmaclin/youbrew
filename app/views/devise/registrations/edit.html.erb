@@ -54,7 +54,7 @@
 
             <div class="row" align="left">
               <div class="col-md-12" align="left">
-              <h4 align="left">Your BEERography</h4>
+              <h4 align="left">Beerography</h4>
                 <ol align="left">
                   <% recipes = Recipe.where({ :user_id => current_user })  %>
                     <% recipes.each do |recipe| %>
@@ -82,7 +82,7 @@
       <% end %>
 
 
-          <%= f.input :avatar, autocomplete: "off", hint: "upload your image from your computer.", required: false %>
+          <%= f.input :avatar, autocomplete: "off", hint: "upload an image from your computer.", required: false %>
             <!-- <div class="row">
               <div class="col-lg-3">
                 <dd><%#= image_tag @user.avatar, :class => "img-responsive" %></dd>

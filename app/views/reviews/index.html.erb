@@ -16,17 +16,18 @@
 
 <div class="container">
 <div class="panel panel-default">
-  <div class="panel-heading">REVIEWS CREATED</div>
+  <div class="panel-heading">Brews you've reviewed</div>
     <div class="row isotope-container">
     <div class="col-xs-12">
     <table class="table" align="left">
       <thead>
           <tr>
-              <th>ID#</th>
-              <!-- <th>Brew</th> -->
+              <th>Batch #</th>
+              <th>Brewer</th>
+              <th>Image</th>
               <th>Headline</th>
               <th>Content</th>
-              <th>Overall Rating</th>
+              <th>Rating(1-5)</th>
             <% if current_user.email == "p1@example.com" %>
               <th>User ID</th>
               <th>Controls</th>
@@ -38,23 +39,19 @@
       <% @reviews.each do |review| %>
 
           <tr>
-            <td><%= review.id %></td>
-            <td><%#= review. %></td>
-            <td><%= review.headline %></td>
-            <td><%= review.content %></td>
+            <td><%= review.batch_id %></td>
+            <td><%= image_tag review.batch.user.avatar, :height => '50px', :width => '50px' %></td>
+            <td><%= image_tag review.batch.image, :height => '50px', :width => '50'  %></td>
+            <td><%= review.headline.truncate(30) %></td>
+            <td><%= review.content.truncate(40, omission: '(...click search icon for more)') %></td>
             <td><%= review.overall_rating %></td>
-
           <% if current_user.email == "p1@example.com" %>
             <td><%= review.user_id %></td>
             <td>
-
-          <%= link_to icon('search-plus'), review, class: "btn btn-primary" %>
-
-          <%= link_to icon('edit'), edit_review_url(review), class: "btn btn-warning" %>
-
-          <%= link_to icon('trash-o'), review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
-
-          <% end %>
+            <%= link_to icon('search-plus'), review, class: "btn btn-primary" %>
+            <%= link_to icon('edit'), edit_review_url(review), class: "btn btn-warning" %>
+            <%= link_to icon('trash-o'), review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
+            <% end %>
             </td>
           </tr>
       <% end %>
