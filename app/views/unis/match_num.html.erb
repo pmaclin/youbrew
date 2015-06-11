@@ -22,7 +22,7 @@
               <dd><%#= @u.batch.recipe.name %></dd>
 
               <dt>The Brewer: </dt>
-              <dd><%= image_tag @u.batch.user.avatar, :class => "img-responsive" %></dd>
+              <dd><%= image_tag @u.batch.user.avatar, :height => "200px", :width => "200px", :class => "img-responsive" %></dd>
               <dd><%= @u.batch.recipe.user.username %></dd>
 
               <dt>Brew date: </dt>
@@ -47,13 +47,15 @@
               <dd><%= @u.batch.aibu %></dd>
 
               <dt></dt>
-              <dd><%= image_tag @u.batch.image, :class => "img-responsive" %></dd>
+              <dd><%= image_tag @u.batch.image, :height => "50%", :width => "50%" %></dd>
 
               <dt>Description: </dt>
               <dd><%= @u.batch.aflavpro %></dd>
 
 <hr>          <!-- Creates a new review from an existing batch -->
-              <h1 align="left">Review this brew!<%= link_to icon('plus'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></h1>
+              <p><h3 align="center">Tell the brewer what you <u>really</u> think about this brew.</h3></p>
+              <p><h1 align="center">Review this brew now!</h1></p>
+              <p align ="center"><%= link_to icon('plus'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></p>
             </dl>
 
               </div> <!-- end div column -->

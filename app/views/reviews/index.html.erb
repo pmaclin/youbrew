@@ -24,7 +24,7 @@
           <tr>
               <th>Batch #</th>
               <th>Brewer</th>
-              <th>Image</th>
+              <th>Batch</th>
               <th>Headline</th>
               <th>Content</th>
               <th>Rating(1-5)</th>
@@ -41,7 +41,7 @@
           <tr>
             <td><%= review.batch_id %></td>
             <td><%= image_tag review.batch.user.avatar, :height => '50px', :width => '50px' %></td>
-            <td><%= image_tag review.batch.image, :height => '50px', :width => '50'  %></td>
+            <td><%= image_tag review.batch.image, :height => '50px', :width => '50px'  %></td>
             <td><%= review.headline.truncate(30) %></td>
             <td><%= review.content.truncate(40, omission: '(...click search icon for more)') %></td>
             <td><%= review.overall_rating %></td>

@@ -16,27 +16,24 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    @review = Review.find(params[:id])
+      @review = Review.find(params[:id])
   end
 
-  # GET /reviews/new
-  # def new_review
-  #   Review.create(batch_id: params[:id], headline: params[:headline], content: params[:content], overall_rating: params[:overall_rating], user_id: params[:user_id] )
-
-  #   # @review = Review.new
-  #   # @review.headline = params[:headline]
-  #   # @review.content = params[:content]
-  #   # @review.overall_rating = params[:overall_rating]
-  #   # @review.user_id = [:user_id]
-  #   # @review.batch_id = params[:batch_id]
-
-  #   # @review.save
-  #   redirect_to reviews_url(@review), notice: "Your review has been saved below."
+  # def reviewed
+  #   if current_user.present?
+  #     @reviews = Review.where( :batch_id => current_user.batches)
+  #   else
+  #     @reviews = Review.all
+  #   end
   # end
 
-
+  # Adds new review to db
   def new
-    @review = Review.new(batch_id: params[:batch_id])
+    # if current_user =! current_user.batch_id
+        @review = Review.new(batch_id: params[:batch_id])
+    # else
+    #   format.html { redirect_to @review, notice: 'Yo... You cannot review your own stuff, Bro!' }
+    # end
   end
 
 
