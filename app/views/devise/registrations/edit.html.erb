@@ -31,7 +31,7 @@
                 <a href="#" class="list-group-item">Number of batches you've created: <span class="badge"><%= current_user.batches.count %></span></a>
 
                 <a href="#" class="list-group-item">Number of reviews from your batches: <span class="badge">2<%#= current_user.reviews.count %></span></a>
-                <a href="#" class="list-group-item">Number of times your recipes have been liked: <span class="badge">17</span></a>
+                <a href="#" class="list-group-item">Number of times your recipes have been liked: <span class="badge">3</span></a>
                 <a href="#" class="list-group-item">Your most liked recipe: <span class="badge">American Stout</span></a>
                 <a href="#" class="list-group-item">The beer style in most of your recipes: <span class="badge">Belgian Ale</span></a>
                 <a href="#" class="list-group-item">The beer style you've most frequently reviewed : <span class="badge">American Stout</span></a>
@@ -54,7 +54,7 @@
 
             <div class="row" align="left">
               <div class="col-md-12" align="left">
-              <h4 align="left">Beerography</h4>
+              <h4 align="left">Beerography <small>(Uploaded Recipes)</small></h4>
                 <ol align="left">
                   <% recipes = Recipe.where({ :user_id => current_user })  %>
                     <% recipes.each do |recipe| %>
@@ -82,7 +82,7 @@
       <% end %>
 
 
-          <%= f.input :avatar, autocomplete: "off", hint: "upload an image from your computer.", required: false %>
+          <%= f.input :avatar, autocomplete: "off", hint: "Upload an image from your computer. *Hint: The best images uploaded are square (e.g. 200 X 200 pixels)", required: false %>
             <!-- <div class="row">
               <div class="col-lg-3">
                 <dd><%#= image_tag @user.avatar, :class => "img-responsive" %></dd>
