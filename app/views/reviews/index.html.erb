@@ -27,10 +27,10 @@
               <th>Batch</th>
               <th>Headline</th>
               <th>Content</th>
-              <th>Rating(1-5)</th>
+              <th>Rating</th>
               <th>Controls</th>
             <% if current_user.email == "p1@example.com" %>
-              <th>User ID</th>
+              <th>Admin Only</th>
 
               <% end %>
           </tr>
@@ -48,7 +48,6 @@
             <td><%= review.overall_rating %></td>
             <td><%= link_to icon('search-plus'), review, class: "btn btn-primary" %></td>
           <% if current_user.email == "p1@example.com" %>
-            <td><%= review.user_id %></td>
             <td>
             <%= link_to icon('edit'), edit_review_url(review), class: "btn btn-warning" %>
             <%= link_to icon('trash-o'), review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
