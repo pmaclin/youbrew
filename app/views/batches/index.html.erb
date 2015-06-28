@@ -1,9 +1,9 @@
 <div class="page-header">
   <h1>
     Your Batches
-    <% if current_user.email == "p1@example.com" %>
+<!--     <% if current_user.email == "p1@example.com" %>
     <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
-    <% end %>
+    <% end %> -->
   </h1>
   <h5>Brewers - Access and edit your batch information here.  Use the controls to access detail, edit the batch profile and create unique id numbers for the batch.</h5>
 </div>
@@ -15,48 +15,50 @@
   </div>
 </div> -->
 
-<div class="panel panel-default">
-  <div class="panel-heading">Your Batches</div>
+  <div class="col-sm-10 col-md-offset-0 col-md-8 col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Your Batches</div>
 
-    <table class="table" align="left">
-      <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Brewed</th>
-            <th>Bottled</th>
-            <th>O.G.</th>
-            <th>F.G.</th>
-            <th>A.B.V.</th>
-            <th>Controls</th>
-          </tr>
-      </thead>
-      <tbody>
-        <% @batches.each do |batch| %>
-          <tr>
-            <td><%= batch.id %></td>
-            <td><%= batch.recipe.name %></td>
-            <td><%= image_tag batch.image, :height => '50px', :width => '50px' %></td>
-            <td><%= batch.brew_date %></td>
-            <td><%= batch.bottle_date %></td>
-            <td><%= batch.aog %></td>
-            <td><%= batch.afg %></td>
-            <td><%= batch.aabv %></td>
-            <td>
-              <%= link_to icon('search-plus'), batch, class: "btn btn-primary" %>
+      <table class="table" align="left">
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Brewed</th>
+              <th>Bottled</th>
+              <th>O.G.</th>
+              <th>F.G.</th>
+              <th>A.B.V.</th>
+              <th>Controls</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @batches.each do |batch| %>
+            <tr>
+              <td><%= batch.id %></td>
+              <td><%= batch.recipe.name %></td>
+              <td><%= image_tag batch.image, :height => '50px', :width => '50px' %></td>
+              <td><%= batch.brew_date %></td>
+              <td><%= batch.bottle_date %></td>
+              <td><%= batch.aog %></td>
+              <td><%= batch.afg %></td>
+              <td><%= batch.aabv %></td>
+              <td>
+                <%= link_to icon('search-plus'), batch, class: "btn btn-primary" %>
 
-              <%= link_to icon('edit'), edit_batch_url(batch), class: "btn btn-warning" %>
+                <%= link_to icon('edit'), edit_batch_url(batch), class: "btn btn-warning" %>
 
-              <%= link_to icon('trash-o'), batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
-            </td>
+                <%= link_to icon('trash-o'), batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
+              </td>
 
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+            </tr>
+          <% end %>
+        </tbody> <!-- end body -->
+      </table> <!-- end table -->
+    </div> <!-- end panel div -->
+  </div> <!-- end column div-->
+
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>

@@ -4,6 +4,8 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
+    @batch = Batch.new
+
   # Display only the current user's batches
     if current_user.present?
         @batches = current_user.batches
