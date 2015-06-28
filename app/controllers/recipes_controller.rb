@@ -4,6 +4,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+     @recipe = Recipe.new
+
     # Display only the current user's recipes
     if current_user.present?
         @recipes = current_user.recipes
@@ -29,7 +31,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params) # Build the Favorite
+    @recipe = Recipe.new(recipe_params) # Build the Recipe
     @recipe.user = current_user # Set manually the user using the current_user method. Keeps tampering with the user field a non issue
 
     respond_to do |format|

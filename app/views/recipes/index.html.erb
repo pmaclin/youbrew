@@ -1,9 +1,9 @@
 <div class="page-header">
   <h1>
     Your Recipes
-    </h1>
+<!--     </h1>
     <h3>Add a New Recipe <%= link_to icon('plus'), new_recipe_path, class: "btn btn-lg btn-success" %>
-    </h3>
+    </h3> -->
 </div>
 
 <!-- Responsive, Isotope-based layout example -->
@@ -16,58 +16,75 @@
 
 <hr>
 
-<div class="row isotope-container">
-<% @recipes.each do |recipe| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><b><%= recipe.name %></b></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt><strong>Beer Style:</strong> <%= recipe.style.name %></dt>
+<!-- Code for index of recipe cards... -->
+<div class="row">
 
-          <dt>Brew type: <%= recipe.brew_type %></dt>
-
-          <dt>Label: <%= recipe.label %></dt>
-
-          <!-- <dt>Description</dt> -->
-          <dd><%#= recipe.description %></dd>
-
-         <!--  <dt>Tog</dt> -->
-          <dd><%#= recipe.tog %></dd>
-
-          <!-- <dt>Tfg</dt> -->
-          <dd><%#= recipe.tfg %></dd>
-
-          <!-- <dt>Tabv</dt> -->
-          <dd><%#= recipe.tabv %></dd>
-
-          <!-- <dt>Taroma</dt> -->
-          <dd><%#= recipe.taroma %></dd>
-
-          <!-- <dt>Tibu</dt> -->
-          <dd><%#= recipe.tibu %></dd>
-
-          <!-- <dt>Tflavpro</dt> -->
-          <dd><%#= recipe.tflavpro %></dd>
-
-          <!-- <dt>User</dt> -->
-          <dd><%#= recipe.user.email %></dd>
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <%= link_to icon('search-plus'), recipe, class: "btn btn-primary" %>
-
-          <%#= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
-
-          <%#= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+<!-- Code to render the form to create a new recipe from the index page. -->
+    <div class="col-md-4 col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Add a New Recipe</h3><small>Add the recipe's target attributes below.</small>
+        </div>
+        <div class="panel-body">
+          <div class="col-xs-12">
+            <div class="panel-body">
+              <%= render 'form', recipe: @recipe %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
-</div>
+
+  <% @recipes.each do |recipe| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-8 isotope-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><b><%= recipe.name %></b></h3>
+        </div>
+        <div class="panel-body">
+          <dl>
+            <dt><strong>Beer Style:</strong> <%= recipe.style.name %></dt>
+
+            <dt>Brew type: <%= recipe.brew_type %></dt>
+
+            <dt>Label: <%= recipe.label %></dt>
+
+            <!-- <dt>Description</dt> -->
+            <dd><%#= recipe.description %></dd>
+
+           <!--  <dt>Tog</dt> -->
+            <dd><%#= recipe.tog %></dd>
+
+            <!-- <dt>Tfg</dt> -->
+            <dd><%#= recipe.tfg %></dd>
+
+            <!-- <dt>Tabv</dt> -->
+            <dd><%#= recipe.tabv %></dd>
+
+            <!-- <dt>Taroma</dt> -->
+            <dd><%#= recipe.taroma %></dd>
+
+            <!-- <dt>Tibu</dt> -->
+            <dd><%#= recipe.tibu %></dd>
+
+            <!-- <dt>Tflavpro</dt> -->
+            <dd><%#= recipe.tflavpro %></dd>
+
+            <!-- <dt>User</dt> -->
+            <dd><%#= recipe.user.email %></dd>
+
+          </dl>
+          <div class="btn-group btn-group-justified">
+            <%= link_to icon('search-plus'), recipe, class: "btn btn-primary" %>
+
+            <%#= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
+
+            <%#= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
@@ -114,4 +131,7 @@
   }
 </script>
 
+</div>
 <!-- End responsive, Isotope-based layout example -->
+
+
