@@ -1,11 +1,11 @@
 <!-- Responsive panel example-->
 
 <div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
+  <div class="col-sm-offset-0 col-sm-10 col-md-offset-0 col-md-8 col-lg-8">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Batch ID#<%= @batch.id %> | Actual Batch Values</h3>
-      </div>
+      </div> <!-- end panel heading -->
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
@@ -58,9 +58,9 @@
                 <%= form_tag("/batches/#{params[:id]}/generate_unis", method:"post") do %>
 
                     <br></br>
-                    <div align="right">
+                    <div align="center">
                       <!-- <label for="new uniques numbers" >Input Number of Unique IDs: </label> -->
-                      <label for="new uni numbers" >Input Number of Uni IDs: </label>
+                      <label for="new uni numbers" >Enter Number of IDs Needed: </label>
                       <!-- <input name="unique_num" type="text" id="first"> -->
                       <input name="uni_num" type="text" id="first">
                       <!-- <input align="right" type="submit" value="Generate IDs"> -->
@@ -71,7 +71,27 @@
           </ul>
         </div>
       </div>
+    </div> <!-- end div panel -->
+</div> <!-- end div col -->
+
+<div class="col-lg-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @batch.reviews.count %> Reviews.</h3>
     </div>
+      <h5 align="center">Here's what your fans are saying:</h5>
+    <div class="panel-body">
+      <ul class="list-group">
+            <% @batch.reviews.each do |review| %>
+              <li class="list-group-item">"<%= link_to review.headline, review %>" <%= review.user.username %> rates this batch a <%= review.overall_rating %> out of 5.</li>
+            <% end %>
+          </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-lg-4">
     <h3 align="center"> This batch has been reviewed <%= @batch.reviews.count %> time(s).</h3>
     <h4 align="center">Here's what your fans are saying:</h4>
         <ul class="list-group">
@@ -79,7 +99,8 @@
             <li class="list-group-item">"<%= link_to review.headline, review %>" <%= review.user.username %> rates this batch a <%= review.overall_rating %> out of 5.</li>
           <% end %>
         </ul>
-  </div>
-</div>
+  </div> -->
+
+</div> <!-- end div row -->
 
 <!-- End responsive panel example -->
