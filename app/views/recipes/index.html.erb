@@ -16,7 +16,7 @@
 
 <!-- Code for index of recipe cards... -->
 
-
+<div class="container">
 <!-- Code to render the form to create a new recipe from the index page. -->
     <div class="col-md-4 col-lg-4">
       <div class="panel panel-success">
@@ -33,56 +33,93 @@
       </div>
     </div>
 
-  <% @recipes.each do |recipe| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-8 isotope-item">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title"><b><%= recipe.name %></b></h3>
-        </div>
-        <div class="panel-body">
-          <dl>
-            <dt><strong>Beer Style:</strong> <%= recipe.style.name %></dt>
 
-            <dt>Brew type: <%= recipe.brew_type %></dt>
 
-            <dt>Label: <%= recipe.label %></dt>
+<% @recipes.each do |recipe| %>
 
-            <!-- <dt>Description</dt> -->
-            <dd><%#= recipe.description %></dd>
+<% if recipe.is_active == false %>
+<h4><%= recipe.style.name %>, ID# <%= recipe.id %> is unpublished.</h4>
 
-           <!--  <dt>Tog</dt> -->
-            <dd><%#= recipe.tog %></dd>
+<% else %>
 
-            <!-- <dt>Tfg</dt> -->
-            <dd><%#= recipe.tfg %></dd>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-8 isotope-item">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><b><%= recipe.name %></b></h3>
+            </div>
+            <div class="panel-body">
+              <dl>
 
-            <!-- <dt>Tabv</dt> -->
-            <dd><%#= recipe.tabv %></dd>
+                <dt><strong>Beer Style:</strong> <%= recipe.style.name %></dt>
 
-            <!-- <dt>Taroma</dt> -->
-            <dd><%#= recipe.taroma %></dd>
+                <dt>Brew type: <%= recipe.brew_type %></dt>
 
-            <!-- <dt>Tibu</dt> -->
-            <dd><%#= recipe.tibu %></dd>
+                <dt>Label: <%= recipe.label %></dt>
 
-            <!-- <dt>Tflavpro</dt> -->
-            <dd><%#= recipe.tflavpro %></dd>
+                <dt>Recipe ID#: <%= recipe.id %></dt>
 
-            <!-- <dt>User</dt> -->
-            <dd><%#= recipe.user.email %></dd>
+                <dt>Published?: <%= recipe.is_active %></dt>
 
-          </dl>
-          <div class="btn-group btn-group-justified">
-            <%= link_to icon('search-plus'), recipe, class: "btn btn-primary" %>
 
-            <%#= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
+                <!-- <dt>Description</dt> -->
+                <dd><%#= recipe.description %></dd>
 
-            <%#= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+               <!--  <dt>Tog</dt> -->
+                <dd><%#= recipe.tog %></dd>
+
+                <!-- <dt>Tfg</dt> -->
+                <dd><%#= recipe.tfg %></dd>
+
+                <!-- <dt>Tabv</dt> -->
+                <dd><%#= recipe.tabv %></dd>
+
+                <!-- <dt>Taroma</dt> -->
+                <dd><%#= recipe.taroma %></dd>
+
+                <!-- <dt>Tibu</dt> -->
+                <dd><%#= recipe.tibu %></dd>
+
+                <!-- <dt>Tflavpro</dt> -->
+                <dd><%#= recipe.tflavpro %></dd>
+
+                <!-- <dt>User</dt> -->
+                <dd><%#= recipe.user.email %></dd>
+
+              </dl>
+
+
+              <div class="btn-group btn-group-justified">
+                <%= link_to icon('search-plus'), recipe, class: "btn btn-primary" %>
+
+                <%#= link_to icon('edit'), edit_recipe_url(recipe), class: "btn btn-warning" %>
+
+                <%#= link_to icon('trash-o'), recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+              </div>
+
+            </div> <!-- end panel body -->
+          </div> <!-- end panel primary -->
+        </div> <!-- end col isotope item -->
+
+<%# end %> <!-- end tag for the true do loop-->
+    <%# end %>
+    <%# else %>
+  <%# if @recipe.is_active = false %>
+    <!-- <h3> This recipe is not published.</h3> -->
+  <%# end %> <!-- end tag for first/true if -->
+<% end %>
+<% end %>
+
+<%# if @recipe.is_active == false %>
+    <%# @recipes.each do |recipe| %>
+      <!-- <h1>This recipe is unpublished!</h1> -->
+        <%# redirect_to @recipe, notice: 'This recipe is no longer viewable.' %>
+    <%# end %> <!-- end tag for the false do loop -->
+<%# end %> <!-- end tag for the 2nd/false if -->
+
+</div> <!-- end div page container -->
+
+
+
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>

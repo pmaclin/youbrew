@@ -5,7 +5,7 @@
     <%= link_to icon('plus'), new_batch_path, class: "btn btn-lg btn-success" %>
     <% end %> -->
   </h1>
-  <h5>Brewers - Access and edit your batch information here.  Use the controls to access detail, edit the batch profile and create unique id numbers for the batch.</h5>
+  <h5>Brewers - Access and edit your batch information here.  Use the controls to access detail, edit the batch profile, check any reviews from your fans and create unique id numbers for a batch by clicking on the blue search icon showing batch details.</h5>
 </div>
 
 
@@ -22,7 +22,8 @@
       <table class="table" align="left">
         <thead>
             <tr>
-              <th>#</th>
+              <th>Recipe #</th>
+              <th>Batch #</th>
               <th>Name</th>
               <th>Image</th>
               <th>Brewed</th>
@@ -36,6 +37,7 @@
         <tbody>
           <% @batches.each do |batch| %>
             <tr>
+              <td><%= batch.recipe_id %></td>
               <td><%= batch.id %></td>
               <td><%= batch.recipe.name %></td>
               <td><%= image_tag batch.image, :height => '50px', :width => '50px' %></td>

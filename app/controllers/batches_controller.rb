@@ -15,19 +15,20 @@ class BatchesController < ApplicationController
   end
 
   # This action creates the unique IDs and displays them on the Uniques Index page
-  def generate_uniques
-    params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], user_id: params[:id], rand_num: rand(1000000))
-    end
+  # def generate_uniques
+  #   params[:unique_num].to_i.times do Unique.create(batch_id: params[:id], user_id: params[:id], rand_num: rand(1000000))
+  #   end
 
-    redirect_to uniques_url(@unique), notice: "Your unique numbers are listed below ;)"
-  end
+  #   redirect_to uniques_url(@unique), notice: "Your unique numbers are listed below :-]"
+  # end
 
     # This action creates the uni IDs and displays them on the Uni Index page
   def generate_unis
     params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
     end
 
-    redirect_to unis_url(@uni), notice: "Your uni numbers are listed below ;)"
+    # redirect_to unis_url(@uni), notice: "Your uni numbers are listed below ;)"
+    redirect_to :back, notice: "Your uni numbers are listed below ;)"
   end
 
 
@@ -54,6 +55,11 @@ class BatchesController < ApplicationController
   # GET /batches/1
   # GET /batches/1.json
   def show
+    if current_user.present?
+      @unis = current_user.unis
+        else
+      @unis = Uni.all
+    end
   end
 
   # GET /batches/new

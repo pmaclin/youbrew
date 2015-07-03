@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-     @recipe = Recipe.new
+    @recipe = Recipe.new
+    recipe = Recipe.new
 
     # Display only the current user's recipes
     if current_user.present?
@@ -15,8 +16,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1
-  # GET /recipes/1.json
-  def show
+  def show  # GET /recipes/1.json
   end
 
   # GET /recipes/new
@@ -33,6 +33,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params) # Build the Recipe
     @recipe.user = current_user # Set manually the user using the current_user method. Keeps tampering with the user field a non issue
+
+    @recipe.is_active = true
+
+    @recipe.save
 
     respond_to do |format|
       if @recipe.save
@@ -61,12 +65,26 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1
   # DELETE /recipes/1.json
+  # def destroy
+  #   @recipe.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+      recipe.is_active = false
+      # @recipe.destroy
+
+      # @recipe = Recipe.where({ :is_active => "false" })
+
+      respond_to do |format|
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed!' }
+        format.json { head :no_content }
     end
+
+      @recipe.save
   end
 
   private
@@ -77,6 +95,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :brew_type, :description, :tog, :tfg, :tabv, :taroma, :tibu, :label, :tflavpro, :style_id)
+      params.require(:recipe).permit(:name, :brew_type, :description, :tog, :tfg, :tabv, :taroma, :tibu, :label, :tflavpro, :style_id, :is_active)
     end
 end
