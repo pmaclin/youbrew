@@ -28,14 +28,20 @@ class UnisController < ApplicationController
   end
 
   def match_num
-    @mirror = Mirror.new
-    @mirror.mrand_num = params[:new_number]
+    ## @mirror = Mirror.new
+    ## @mirror.mrand_num = params[:new_number]
 
-    @mirror.save
+    ## @mirror.save
 
-    # @m = Mirror.find_by({ :mrand_num => params[:new_number] })
+    ## @m = Mirror.find_by({ :mrand_num => params[:new_number] })
+
     @u = Uni.find_by({ :rand_num => params[:new_number] })
-    @u = Uni.find_by_rand_num(params[:new_number])
+
+    # if params[:new_number] == current_user.@uni.rand_num { redirect_to @uni, notice: 'Hey dude... you cannot review your own stuff!!'}
+    # end
+
+    ## @u = Uni.find_by_rand_num(params[:new_number])
+
   end
 
   # POST /unis

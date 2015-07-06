@@ -51,7 +51,9 @@
 
                 <%= link_to icon('edit'), edit_batch_url(batch), class: "btn btn-warning" %>
 
+                <% if current_user.email == "p1@example.com" %>
                 <%= link_to icon('trash-o'), batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
+                <% end %>
               </td>
 
             </tr>

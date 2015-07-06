@@ -4,47 +4,47 @@
   <div class="col-sm-offset-0 col-sm-10 col-md-offset-0 col-md-8 col-lg-8">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">Batch ID#<%= @batch.id %> | Actual Batch Values</h3>
+        <h3 class="panel-title">Batch ID#<%= @batch.id %> | Actual Batch Values for <%= @batch.recipe.name %></h3>
       </div> <!-- end panel heading -->
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Size</dt>
+              <dt>Size:</dt>
               <dd><%= @batch.size %></dd>
 
-              <dt>Brew date</dt>
+              <dt>Brew date:</dt>
               <dd><%= @batch.brew_date %></dd>
 
-              <dt>Bottle date</dt>
+              <dt>Bottle date:</dt>
               <dd><%= @batch.bottle_date %></dd>
 
-              <dt>Original Gravity</dt>
+              <dt>Original Gravity:</dt>
               <dd><%= @batch.aog %></dd>
 
-              <dt>Final Gravity</dt>
+              <dt>Final Gravity:</dt>
               <dd><%= @batch.afg %></dd>
 
-              <dt>Alchohol by Volume(ABV)</dt>
-              <dd><%= @batch.aabv %></dd>
+              <dt>ABV:</dt>
+              <dd><%= @batch.aabv %>%</dd>
 
-              <dt>Aroma</dt>
+              <dt>Aroma:</dt>
               <dd><%= @batch.aaroma %></dd>
 
-              <dt>IBUs</dt>
+              <dt>IBUs:</dt>
               <dd><%= @batch.aibu %></dd>
 
-              <dt>Image</dt>
+              <!-- <dt>Image</dt> -->
               <dd><%= image_tag @batch.image, :class => "img-responsive" %></dd>
 
-              <dt>Flavor Profile</dt>
+              <dt>Flavor Profile:</dt>
               <dd><%= @batch.aflavpro %></dd>
 
-              <dt>User</dt>
-              <dd><%= @batch.user.email %></dd>
+           <!--    <dt>User</dt> -->
+              <dd><%#= @batch.user.email %></dd>
 
-              <dt>Recipe</dt>
-              <dd><%= @batch.recipe.name %></dd>
+             <!--  <dt>Recipe</dt> -->
+              <dd><%#= @batch.recipe.name %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">
@@ -52,7 +52,9 @@
 
               <%= link_to icon('edit'), edit_batch_path(@batch), class: "btn btn-warning" %>
 
+              <% if current_user.email == "p1@example.com" %>
               <%= link_to icon('trash-o'), @batch, method: :delete, data: { confirm: "Do you really want to delete this batch?" }, class: "btn btn-danger" %>
+              <% end %>
             </div>
           </div>
           </ul>
@@ -90,55 +92,22 @@
 <br>
 <div class="row">
 
-  <div class="col-lg-5">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <div class="panel-title">
-        <% @unis.each do |uni| %>
-         <li><%= uni.rand_num %></li>
-        <% end %>
-        </div>
-      </div>
-    </div>
+  <div class="col-lg-12">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">IDs generated for batch id# <%= @batch.id %></h3>
   </div>
-
-  <div class="col-lg-5">
+  <div class="panel-body">
     <% @batch.unis.each do |uni| %>
-      <li class="list-group-item"><%= uni.rand_num %></li>
+        <font size="3"><a href="#" class="list-group-item"><%= uni.rand_num %></a></font>
     <% end %>
   </div>
-
+</div>
 </div>
 
 </div>
 
-
-<%# @b = Uni.where({ :batch_id => @batch.id }) %>
-
-<!-- <br>
-  <div class="col-lg-6">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <div class="panel-title">
-<% @unis.each do |uni| %>
-          <tr>
-            <td><%= uni.rand_num %>,<%= @b %></td>
-          </tr>
-      <% end %>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-<!-- <div class="col-lg-4">
-    <h3 align="center"> This batch has been reviewed <%= @batch.reviews.count %> time(s).</h3>
-    <h4 align="center">Here's what your fans are saying:</h4>
-        <ul class="list-group">
-          <% @batch.reviews.each do |review| %>
-            <li class="list-group-item">"<%= link_to review.headline, review %>" <%= review.user.username %> rates this batch a <%= review.overall_rating %> out of 5.</li>
-          <% end %>
-        </ul>
-  </div> -->
+</div>
 
 </div> <!-- end div row -->
 

@@ -24,11 +24,18 @@ class BatchesController < ApplicationController
 
     # This action creates the uni IDs and displays them on the Uni Index page
   def generate_unis
-    params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
+    if params[:uni_num] > '2'
+      # params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
+      redirect_to :back, notice: "You can only generate 2 numbers at a time!"
+    elsif
+
+      params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
     end
 
     # redirect_to unis_url(@uni), notice: "Your uni numbers are listed below ;)"
-    redirect_to :back, notice: "Your uni numbers are listed below ;)"
+    redirect_to :back, notice: "Your unique numbers are listed below :-]"
+    end
+
   end
 
 
