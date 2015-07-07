@@ -1,6 +1,4 @@
-<% if params[:new_number] == current_user.unis %>
-<h1>Hey dude... you cannot review your own stuff!!</h1>
-<% else %>
+
 
 <% if @u.present? %>
   <h1 align="center">We have a match!!<span aria-hidden="true" class="fa fa-beer"></span></h1> <h2 align="center">You've made a match for brew ID#: <%= @u.rand_num %></h2>
@@ -50,10 +48,15 @@
               <dt>Description: </dt>
               <dd><%= @u.batch.aflavpro %></dd>
 
+              <%# Uni.find_by({ :batch_id => 'batch.id', :batch_id => 'review.batch_id' }) %>
+
+
 <hr>          <!-- Creates a new review from an existing batch -->
+
               <p><h3 align="center">Tell the brewer what you <u>really</u> think about this brew.</h3></p>
               <p><h1 align="center">Review this brew now!</h1></p>
               <p align ="center"><%= link_to icon('plus'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></p>
+
             </dl>
 
                 </div> <!-- end div column -->
@@ -70,7 +73,7 @@
   <h1>Say, What!?!?!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
 <%= params[:new_number] %> doesn't match any of the brews in our database. Please click on <%= link_to "Rate-a-Brew", "/mirrors/input" %> and try again!
 <% end %>
-<% end %>
+
 
 
 

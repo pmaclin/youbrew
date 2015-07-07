@@ -29,11 +29,7 @@ class ReviewsController < ApplicationController
 
   # Adds new review to db
   def new
-    # if current_user =! current_user.batch_id
-        @review = Review.new(batch_id: params[:batch_id])
-    # else
-    #   format.html { redirect_to @review, notice: 'Yo... You cannot review your own stuff, Bro!' }
-    # end
+      @review = Review.new(batch_id: params[:batch_id])
   end
 
 
@@ -49,16 +45,21 @@ class ReviewsController < ApplicationController
     # params[:batch_id]
 
     @review = Review.new(review_params)
-    # @review = Review.new(review_params)
+
     @review.user = current_user
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
-        format.json { render :show, status: :created, location: @review }
-        else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+    if current_user.id == @review.batch.user_id
+        redirect_to @review, notice: 'You cannot review your own stuff, Bro.'
+    else
+
+      respond_to do |format|
+        if @review.save
+          format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
+          format.json { render :show, status: :created, location: @review }
+          else
+          format.html { render :new }
+          format.json { render json: @review.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
