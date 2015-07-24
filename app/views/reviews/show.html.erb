@@ -1,37 +1,39 @@
 <!-- Responsive panel example-->
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%#= @review.id %>Review by <%= @review.user.username %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <dl class="dl-horizontal">
+                <dt>Headline:</dt>
+                <dd><%= @review.headline %></dd>
 
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Review #<%= @review.id %> | Brew/Batch # <%= @review.batch_id %></h3>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <dl class="dl-horizontal">
-              <dt>Headline</dt>
-              <dd><%= @review.headline %></dd>
+                <dt>Detail:</dt>
+                <dd><%= @review.content %></dd>
 
-              <dt>Content</dt>
-              <dd><%= @review.content %></dd>
+                <br>
+                <!-- <dt>Overall rating</dt> -->
+                <dd align="center"><h4> User <%= @review.user.username %> scores batch # <%= @review.batch_id %> of <%= @review.batch.recipe.name %> a </h4></dd><h1 align="center"><%= @review.overall_rating %> out of 5</h1>
 
-              <dt>Overall rating</dt>
-              <dd><%= @review.overall_rating %></dd>
+                <!-- <dt>User</dt> -->
+                <dd><%#= @review.user_id %></dd>
 
-              <dt>User</dt>
-              <dd><%= @review.user_id %></dd>
+                <!-- <dt>Batch</dt> -->
+                <dd><%#= @review.batch_id %></dd>
 
-              <dt>Batch</dt>
-              <dd><%= @review.batch_id %></dd>
+              </dl>
+              <div class="btn-group btn-group-justified">
+                <%= link_to icon('chevron-left'), :batches, class: "btn btn-primary" %>
 
-            </dl>
-            <div class="btn-group btn-group-justified">
-              <%= link_to icon('chevron-left'), batches_path, class: "btn btn-primary" %>
+                <%#= link_to icon('edit'), edit_review_path(@review), class: "btn btn-warning" %>
 
-              <%#= link_to icon('edit'), edit_review_path(@review), class: "btn btn-warning" %>
-
-              <%#= link_to icon('trash-o'), @review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
+                <%#= link_to icon('trash-o'), @review, method: :delete, data: { confirm: "Do you really want to delete this review?" }, class: "btn btn-danger" %>
+              </div>
             </div>
           </div>
         </div>

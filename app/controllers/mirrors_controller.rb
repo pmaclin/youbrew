@@ -7,11 +7,12 @@ class MirrorsController < ApplicationController
     @mirrors = Mirror.all
   end
 
+  # This is the form used for inputting a uni ID, to be matched with a batches rand_num.
   def input_form
-  #   @match = Mirror.find_by({ :rand_num => params("match_num")} )
+     #@match = Mirror.find_by({ :rand_num => params("match_num") })
   end
 
-  def match_num
+  def match_numqq
     @mirror = Mirror.new
     @mirror.mrand_num = params[:new_number]
 

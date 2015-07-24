@@ -1,3 +1,4 @@
+<div class="page-header">
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-6 col-lg-8" align="center">
@@ -30,7 +31,7 @@
                 <a href="/recipes" class="list-group-item">Number of recipes you've uploaded: <span class="badge"><%= current_user.recipes.count %></span></a>
                 <a href="/batches" class="list-group-item">Number of batches you've created: <span class="badge"><%= current_user.batches.count %></span></a>
 
-                <a href="#" class="list-group-item">Number of reviews from your batches: <span class="badge">?  <%#= current_user.batches.count %></span></a>
+                <a href="#" class="list-group-item">Number of reviews from your batches: <span class="badge">?<%#= current_user.batches.reviews.count %></span></a>
                 <a href="#" class="list-group-item">Number of times your recipes have been liked: <span class="badge">?</span></a>
                 <a href="#" class="list-group-item">Your most liked recipe: <span class="badge">American Stout</span></a>
                 <a href="#" class="list-group-item">The beer style in most of your recipes: <span class="badge">Belgian Ale</span></a>
@@ -120,4 +121,5 @@
   <%= link_to "Back", :back %>
     </div>
   </div>
+</div>
 </div>

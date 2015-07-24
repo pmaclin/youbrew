@@ -1,12 +1,14 @@
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Create a new Batch from <%= @batch.recipe.name %></h3>
-        <h5>While the recipe is the target, batch values are the actual values of the brewed batch of beer. These may differ from the recipe's values. Include those actual values here.</h5>
-      </div>
-      <div class="panel-body">
-        <%= render 'form', batch: @batch %>
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Create a new Batch from <%= @batch.recipe.name %></h3>
+          <h5>While the recipe is the target, batch values are the actual values of the brewed batch of beer. These may differ from the recipe's values. Include those actual values here.</h5>
+        </div>
+        <div class="panel-body">
+          <%= render 'form', batch: @batch %>
+        </div>
       </div>
     </div>
   </div>

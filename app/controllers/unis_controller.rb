@@ -28,38 +28,26 @@ class UnisController < ApplicationController
   end
 
   def match_num
-    ## @mirror = Mirror.new
-    ## @mirror.mrand_num = params[:new_number]
-
-    ## @mirror.save
-
-    ## @m = Mirror.find_by({ :mrand_num => params[:new_number] })
-
     @u = Uni.find_by({ :rand_num => params[:new_number] })
-
-    # if params[:new_number] == current_user.@uni.rand_num { redirect_to @uni, notice: 'Hey dude... you cannot review your own stuff!!'}
-    # end
-
-    ## @u = Uni.find_by_rand_num(params[:new_number])
-
   end
 
   # POST /unis
   # POST /unis.json
   def create
     @uni = Uni.new(uni_params)
+
     @uni.user = current_user
 
-    respond_to do |format|
-      if @uni.save
-        format.html { redirect_to @uni, notice: 'Uni was successfully created.' }
-        format.json { render :show, status: :created, location: @uni }
-      else
-        format.html { render :new }
-        format.json { render json: @uni.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @uni.save
+          format.html { redirect_to @uni, notice: 'Uni was successfully created.' }
+          format.json { render :show, status: :created, location: @uni }
+        else
+          format.html { render :new }
+          format.json { render json: @uni.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
   # PATCH/PUT /unis/1
   # PATCH/PUT /unis/1.json

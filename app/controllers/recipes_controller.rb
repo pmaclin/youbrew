@@ -17,6 +17,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1
   def show  # GET /recipes/1.json
+    @recipe = Recipe.find params[:id]
+
+      if current_user.id != @recipe.user_id
+        flash[:alert] = "Whoa, whoa, whoa! - Slow up, Home Skillet. You DO NOT have access to that recipe!!"
+        redirect_to recipes_path(session[:current_user])
+        return
+      end
   end
 
   # GET /recipes/new

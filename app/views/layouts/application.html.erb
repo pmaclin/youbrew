@@ -6,10 +6,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-<body>
+<body { padding-top: 70px; }>
+<div class="page-header">
+<nav class="navbar navbar-default navbar-fixed-top">
+<!-- <a class="navbar-brand" href="#"><img alt="TBE" <%#= image_tag "TBE_Logo_transExported_35x34.png", :height => '100%', :width => '100%' %></a> -->
 
-<nav class="navbar navbar-default">
-<a class="navbar-brand" href="#"><img alt="TBE" <%= image_tag "TBE_Logo_transExported_35x34.png", :height => '100%', :width => '100%' %></a>
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,9 +26,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_url %></li>
-        <li><%= link_to "Beer Styles", styles_path %></li>
-        <li><%= link_to "MyRecipes", recipes_path %></li>
-        <li><%= link_to "MyBatches", batches_path %></li>
+        <li><%= link_to "BJCP Beer Styles", styles_path %></li>
+        <li><%= link_to "Recipes", recipes_path %></li>
+        <li><%= link_to "Batches", batches_path %></li>
         <li><%#= link_to "MyReviews", reviews_path %></li>
         <li><%#= link_to "MyUnique Numbers", uniques_path %></li>
         <li><%#= link_to "MyBrew IDs", unis_path %></li>
@@ -53,7 +54,7 @@
  <script src="js/bootstrap.min.js"></script>
 
   <% if alert.present? %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
+    <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <%= alert %>
     </div>
@@ -68,6 +69,7 @@
 
 <%= yield %>
 </div> <!-- end .container -->
+</div> <!-- end page header -->
 
 </body>
 </html>

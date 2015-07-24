@@ -1,6 +1,6 @@
 <!-- Responsive panel example-->
-
-<div class="row">
+<div class="page-header">
+<div class="row" >
   <div class="col-sm-offset-0 col-sm-10 col-md-offset-0 col-md-8 col-lg-8">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -8,7 +8,7 @@
       </div> <!-- end panel heading -->
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-sm-12 col-md-12 col-lg-12">
             <dl class="dl-horizontal">
               <dt>Size:</dt>
               <dd><%= @batch.size %></dd>
@@ -63,52 +63,85 @@
     </div> <!-- end div panel -->
 </div> <!-- end div col -->
 
-<div class="col-lg-4">
+<div class="col-sm-12 col-md-12 col-lg-4">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= @batch.reviews.count %> Reviews.</h3>
+      <h3 class="panel-title"><%= @batch.reviews.count %> Review(s)</h3>
     </div>
       <h5 align="center">Here's what your fans are saying:</h5>
     <div class="panel-body">
       <ul class="list-group">
             <% @batch.reviews.each do |review| %>
-              <li class="list-group-item">"<%= link_to review.headline, review %>" <%= review.user.username %> rates this batch a <%= review.overall_rating %> out of 5.</li>
+              <font size="2"><li class="list-group-item">"<%= link_to review.headline, review %>" <%= review.user.username %> rates this batch a <%= review.overall_rating %> out of 5.</li></font>
             <% end %>
           </ul>
     </div>
   </div>
+
+    <!-- div Group for ID form entry -->
     <%#= form_tag("/batches/#{params[:id]}/generate_uniques", method:"post") do %>
-    <%= form_tag("/batches/#{params[:id]}/generate_unis", method:"post") do %>
-      <div align="center">
-        <!-- <label for="new uniques numbers" >Input Number of Unique IDs: </label> -->
-        <label for="new uni numbers" >Enter Number of IDs Needed: </label>
-        <!-- <input name="unique_num" type="text" id="first"> -->
-        <input name="uni_num" type="text" id="first">
-        <!-- <input align="right" type="submit" value="Generate IDs"> -->
-        <input align="right" type="submit" value="Generate Uni IDs">
+
+<!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Generate Unique IDs</h3>
+    </div>
+
+    <div class="panel-body">
+    <ul class="list-group">
+      <h6>Each batch can have a max of 24 unique IDs generated</h6>
+      <h6>Clicking the "Generate IDs" button below will generate 6 IDs at a time until you've reached the max amount</h6>
+      <hr>
+      <h6 align="center">You've generated <font color="red"><%= @batch.unis.count %></font> IDs so far for this batch. You've got <%= 24.to_i - @batch.unis.count %> more.</h6>
+    </ul>
+
+
+
+    <!-- <dt align="center"><h4>BREWERS</h4></dt> -->
+
+    <dd align="center"><h4><font color="red"><%#= @batch.unis.count %></font></h4></dd>
+
+
+    <% if @batch.unis.count >= '24'.to_i %>
+      <h5 align="center"><font color="red">You've maxed out the numbers of IDs you can create for this batch.</font></h5>
+    <% else %>
+
+        <%= form_tag("/batches/#{params[:id]}/generate_unis", method:"post") do %>
+            <div align="center">
+
+                <label for="new uni numbers" >Click to generate more IDs: </label>
+
+                <!-- <input name="uni_num" type="text" id="first"> -->
+
+                <input align="right" type="submit" value="Generate IDs">
+            </div>
+        <% end %>
+    <% end %>
+
+      </div> <!-- end div panel body -->
+    </div> <!-- end div panel panel-success -->
+
+
+    <br>
+    <!-- div group for generated ID list -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">IDs generated for batch id# <%= @batch.id %></h3>
+          </div>
+          <div class="panel-body">
+            <% @batch.unis.each do |uni| %>
+              <font size="2"><a href="#" class="list-group-item"><%= uni.rand_num %></a></font>
+            <% end %>
+          </div>
+        </div>
       </div>
-    <% end %>
+    </div>
 
-<br>
-<div class="row">
-
-  <div class="col-lg-12">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">IDs generated for batch id# <%= @batch.id %></h3>
-  </div>
-  <div class="panel-body">
-    <% @batch.unis.each do |uni| %>
-        <font size="3"><a href="#" class="list-group-item"><%= uni.rand_num %></a></font>
-    <% end %>
-  </div>
-</div>
-</div>
-
-</div>
-
-</div>
+<!-- </div> --> <!-- end column for batch panel -->
 
 </div> <!-- end div row -->
+</div>
 
 <!-- End responsive panel example -->

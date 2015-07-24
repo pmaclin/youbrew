@@ -24,12 +24,19 @@ class BatchesController < ApplicationController
 
     # This action creates the uni IDs and displays them on the Uni Index page
   def generate_unis
-    if params[:uni_num] > '12.to_i'
+
+    @max = params[:uni_num].to_i + '@batch.unis.count'.to_i
+
+
+    # @max = '0'.to_i and '24'.to_i
+
+    if @max >= '24'.to_i
       # params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
-      redirect_to :back, notice: "You can only generate 12 numbers at a time!"
+      redirect_to :back, notice: "You can only generate 24 numbers at a time!"
     elsif
 
-      params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
+      # params[:uni_num].to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
+      '6'.to_i.times do Uni.create(batch_id: params[:id], user_id: (current_user.id), rand_num: rand(1000000))
     end
 
     # redirect_to unis_url(@uni), notice: "Your uni numbers are listed below ;)"
@@ -62,11 +69,17 @@ class BatchesController < ApplicationController
   # GET /batches/1
   # GET /batches/1.json
   def show
-    if current_user.present?
-      @unis = current_user.unis
-        else
-      @unis = Uni.all
-    end
+    # @max = params[:uni_num].to_i + '@batch.unis.count'.to_i
+
+    @max = '0'.to_i and '24'.to_i
+
+    @batch = Batch.find params[:id]
+
+      if current_user.id != @batch.user_id
+        flash[:alert] = "Whoa, whoa, whoa! Slow up, Home Skillet. You DO NOT have access to that batch!"
+        redirect_to batches_path(session[:current_user])
+        return
+      end
   end
 
   # GET /batches/new

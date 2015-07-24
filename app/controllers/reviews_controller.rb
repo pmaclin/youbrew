@@ -49,7 +49,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if current_user.id == @review.batch.user_id
-        redirect_to @review, notice: 'You cannot review your own stuff, Bro.'
+        redirect_to @review, notice: 'Hey....Brewers code violation dude! You know you cannot review your own stuff, right?!'
     else
 
       respond_to do |format|
