@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629184312) do
+ActiveRecord::Schema.define(version: 20150725063806) do
 
   create_table "batches", force: :cascade do |t|
     t.string   "size"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150629184312) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "is_used"
   end
 
   add_index "unis", ["batch_id"], name: "index_unis_on_batch_id"

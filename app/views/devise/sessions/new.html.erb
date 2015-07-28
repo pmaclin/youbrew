@@ -97,20 +97,21 @@
             <a href="#" class="list-group-item active"><h3>
             What's Brewing on The Brewer's Edge?</h3><span class="badge"></span>
             </a>
-            <a href="#" class="list-group-item">No. Members <span class="badge"><%= User.count %></span></a>
-            <a href="#" class="list-group-item">No. Recipes Uploaded <span class="badge"><%= Recipe.count %></span></a>
-            <a href="#" class="list-group-item">No. Batches Made <span class="badge"><%= Batch.count %></span></a>
-            <h3><i>Popular styles</i></h3>
+            <a href="#" class="list-group-item">Brewers <span class="badge"><%= User.count %></span></a>
+            <a href="#" class="list-group-item">Recipes <span class="badge"><%= Recipe.count %></span></a>
+            <a href="#" class="list-group-item">Batches <span class="badge"><%= Batch.count %></span></a>
+            <h3><i>Most Popular Recipe Styles</i></h3>
             <a href="#" class="list-group-item">American Stout Recipes <span class="badge"><%= Recipe.where({ :style_id => "1" }).count %></span></a>
             <a href="#" class="list-group-item">Imperial IPA Recipes <span class="badge"><%= Recipe.where({ :style_id => "10" }).count %></span></a>
             <a href="#" class="list-group-item">American Wheat Recipes <span class="badge"><%= Recipe.where({ :style_id => "2" }).count %></span></a>
             <a href="#" class="list-group-item">Barleywine Recipes <span class="badge"><%= Recipe.where({ :style_id => "6" }).count %></span></a>
             <a href="#" class="list-group-item">Amber/Red Ale Recipes <span class="badge"><%= Recipe.where({ :style_id => "3" }).count %></span></a>
             <h3><i>Recipe Types</i></h3>
-            <a href="#" class="list-group-item"># of All Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "All-Grain!"}).count %></span></a>
-            <a href="#" class="list-group-item"># of Extract Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Extract"}).count %></span></a>
-            <a href="#" class="list-group-item"># of Extract with Specialty Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Extract w/Special Grains"}).count %></span></a>
-            <a href="#" class="list-group-item"># of Mini Mash Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Partial or Mini-Mash"}).count %></span></a>
+            <a href="#" class="list-group-item">All Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "All-Grain!"}).count %></span></a>
+            <a href="#" class="list-group-item">Mini Mash/Partial Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Partial or Mini-Mash"}).count %></span></a>
+            <a href="#" class="list-group-item">Extract with Specialty Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Extract w/Special Grains"}).count %></span></a>
+            <a href="#" class="list-group-item">Extract Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Extract"}).count %></span></a>
+
           </div>
         </div>
 

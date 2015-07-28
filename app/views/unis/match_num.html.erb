@@ -65,9 +65,27 @@
 
 <hr>          <!-- Creates a new review from an existing batch -->
 
+              <% if @u.is_used == true %>
+                <h1 align="center">Ooops!</h1>
+                <h4 align="center">Something went wrong. Please try a different number.</h4>
+
+                  <form action="http://localhost:3000/match_brew">
+                    <div align="center">
+                      <label for="new number" >Input Brew Number</label>
+                      <input name="new_number" type="text" id="first">
+                      <input align="right" type="submit" value="Find your brew">
+                    </div>
+                  </form>
+
+              <% else %>
+
               <p><h4 align="center">Now you can tell the brewer what you really think about this brew!</h4></p>
               <p><h4 align="center">Review it now.</h4></p>
               <p align ="center"><%= link_to icon('check'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></p>
+              <% @u.is_used = true %>
+              <% @u.save %>
+
+              <% end %>
 
             </dl>
 

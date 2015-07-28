@@ -30,6 +30,10 @@ class ReviewsController < ApplicationController
   # Adds new review to db
   def new
       @review = Review.new(batch_id: params[:batch_id])
+
+      # @u = Uni.find_by({ :rand_num => params[:new_number] })
+      # @u.is_used = true
+      # @u.save
   end
 
 
@@ -49,6 +53,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if current_user.id == @review.batch.user_id
+        # We should redirect users to a different page. Not @review
         redirect_to @review, notice: 'Hey....Brewers code violation dude! You know you cannot review your own stuff, right?!'
     else
 
