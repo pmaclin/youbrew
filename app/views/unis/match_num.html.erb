@@ -1,18 +1,14 @@
-
-      <%# if params[:new_number] == uni.rand_num %>
-        <%#= redirect_to @uni, notice: 'A number can only be used once.' %>
-      <%# else %>
 <div class="page-header">
 
-<% if @x.present? %>
- <% @u.rand_num != params[:new_number] %>
-<h1 align="center">A number cannot be used more than once.</h1>
-<% else %>
+<%# if @x.present? %>
+ <%# @u.rand_num != params[:new_number] %>
+<!-- <h1 align="center">A number cannot be used more than once.</h1> -->
+<%# else %>
 
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
   <% if @u.present? %>
-    <h1 align="center">We have a match!!<span aria-hidden="true" class="fa fa-beer"></span></h1> <h2 align="center"><%#= @u.rand_num %> Here's what you have in your hand:</h2>
+    <h1 align="center">We have a match!<span aria-hidden="true" class="fa fa-beer"></span></h1> <h2 align="center"><%#= @u.rand_num %> Here's what you have in your hand:</h2>
   </div>
 </div>
 
@@ -65,7 +61,7 @@
 
 <hr>          <!-- Creates a new review from an existing batch -->
 
-              <% if @u.is_used == true %>
+          <% if @u.is_used == true %>
                 <h1 align="center">Ooops!</h1>
                 <h4 align="center">Something went wrong. Please try a different number.</h4>
 
@@ -77,15 +73,15 @@
                     </div>
                   </form>
 
-              <% else %>
+          <% else %>
 
-              <p><h4 align="center">Now you can tell the brewer what you really think about this brew!</h4></p>
+              <p><h4 align="center">Tell the brewer what you <u>really</u> think about this brew.</h4></p>
               <p><h4 align="center">Review it now.</h4></p>
               <p align ="center"><%= link_to icon('check'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></p>
               <% @u.is_used = true %>
               <% @u.save %>
 
-              <% end %>
+          <% end %>
 
             </dl>
 
@@ -100,10 +96,10 @@
 
 
 <% else %>
-  <h1>Say, What!?!?!<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
-<%= params[:new_number] %> doesn't match any of the brews in our database. Please click on <%= link_to "Rate-a-Brew", "/mirrors/input" %> and try again!
+  <h1>Wait. What!?<span aria-hidden="true" class="fa fa-frown-o"></span></h1>
+<%= params[:new_number] %> doesn't match with any of the brews in our database. Please click on <%= link_to "Rate-a-Brew", "/mirrors/input" %> and try again!
 <% end %>
-<% end %>
+<%# end %>
 
 </div>
 

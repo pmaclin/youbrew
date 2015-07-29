@@ -92,7 +92,7 @@
       <h6>Each batch can have a max of 24 unique IDs generated</h6>
       <h6>Clicking the "Generate IDs" button below will generate 6 IDs at a time until you've reached the max amount</h6>
       <hr>
-      <h6 align="center">You've generated <font color="red"><%= @batch.unis.count %></font> IDs so far for this batch. You've got <%= 24.to_i - @batch.unis.count %> more.</h6>
+      <h6 align="center">You've generated</h6><h3 align="center"><font color="red"><%= @batch.unis.count %></font></h3><h6>IDs so far for this batch. You've got <%= 24.to_i - @batch.unis.count %> left.</h6>
     </ul>
 
 

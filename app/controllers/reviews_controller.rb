@@ -19,21 +19,9 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
   end
 
-  # def reviewed
-  #   if current_user.present?
-  #     @reviews = Review.where( :batch_id => current_user.batches)
-  #   else
-  #     @reviews = Review.all
-  #   end
-  # end
-
   # Adds new review to db
   def new
       @review = Review.new(batch_id: params[:batch_id])
-
-      # @u = Uni.find_by({ :rand_num => params[:new_number] })
-      # @u.is_used = true
-      # @u.save
   end
 
 
@@ -54,12 +42,12 @@ class ReviewsController < ApplicationController
 
     if current_user.id == @review.batch.user_id
         # We should redirect users to a different page. Not @review
-        redirect_to @review, notice: 'Hey....Brewers code violation dude! You know you cannot review your own stuff, right?!'
+        redirect_to @review, notice: 'Hey....Brewers code violation! You know you cannot review your own stuff, right?'
     else
 
       respond_to do |format|
         if @review.save
-          format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
+          format.html { redirect_to "/users/edit", notice: 'Your review was successfully created ;)' }
           format.json { render :show, status: :created, location: @review }
           else
           format.html { render :new }
