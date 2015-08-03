@@ -10,7 +10,6 @@ class UnisController < ApplicationController
       else
       @unis = Uni.all
     end
-    # @unis = Uni.all
   end
 
   # GET /unis/1

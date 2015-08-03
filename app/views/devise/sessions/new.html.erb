@@ -52,7 +52,12 @@
             </div> <!-- Carousel -->
     <hr>
       <div class="row">
-        <div class="col-md-6 col-lg-9">
+          <div align="center" class="col-md-6 col-lg-9">
+            <h1 align="center"><i>"Be The Brewer"</i></h1>
+              <%= image_tag "murray_01.png", :height => '100%', :width => '100%' %>
+          </div>
+
+        <!-- <div class="col-md-6 col-lg-9">
           <h1 align="center"><i><font face="impact" color="darkblue" >Be The Brewer!</font></i></h1>
             <h3><i><font face="verdana" color="darkblue">"What is The Brewer's Edge?"</font><i></h3>
             <p>The concept is simple: Let's create an social network where home beer brewers can have their beers rated by fans, and other brewers alike, without the effort of a formal brewing competition. Craft beer enthusiasts can share reviews, ideas, recipes and revel in all that is the bubbly libation!  All the while, brewers can use the info collected about their creations to improve their recipes and brewing processes.</p>
@@ -69,7 +74,7 @@
 
             <h3><i><font face="verdana" color="darkblue">"Okay, I'm in. Now what?"</font></i></h3>
             <p>Here's the fun part! Home Brewers, are you ready to raise your game? Load all of your recipes through your profile page. After you've created a real batch of beer, create a virtual batch on the site.  It's easy, just tell us how the batch came out.  Once you hand out your beer your fans will be able to come back to the site and rate the experience.  When you've collected the feedback from those reviews, use it to improve your process and become a better brewer.</p>
-          </div>
+          </div> -->
 
 
         <div class="col-sm-6 col-md-6 col-lg-3">
@@ -86,27 +91,34 @@
             <% end %>
 
           <%= render "devise/shared/links" %>
+
+          <div align="center" class="col-md-6 col-lg-12">
+              <%= image_tag "tbe.jpg", :height => '100%', :width => '100%' %>
+            <h4 align="center">BREW. SHARE. ENJOY!</h4>
+          </div>
+
+
         </div>
       </div> <!-- end div row -->
     <hr>
 
     <div class="row">
 
-        <div class="col-xs-12 col-md-3 col-lg-8">
+        <div class="col-xs-12 col-md-3 col-lg-12">
           <div class="list-group">
             <a href="#" class="list-group-item active"><h3>
             What's Brewing on The Brewer's Edge?</h3><span class="badge"></span>
             </a>
-            <a href="#" class="list-group-item">Brewers <span class="badge"><%= User.count %></span></a>
-            <a href="#" class="list-group-item">Recipes <span class="badge"><%= Recipe.count %></span></a>
-            <a href="#" class="list-group-item">Batches <span class="badge"><%= Batch.count %></span></a>
+            <a href="#" class="list-group-item">Members <span class="badge"><%= User.count %></span></a>
+            <a href="#" class="list-group-item">Recipes Uploaded <span class="badge"><%= Recipe.count %></span></a>
+            <a href="#" class="list-group-item">Batches Made<span class="badge"><%= Batch.count %></span></a>
             <h3><i>Most Popular Recipe Styles</i></h3>
             <a href="#" class="list-group-item">American Stout Recipes <span class="badge"><%= Recipe.where({ :style_id => "1" }).count %></span></a>
             <a href="#" class="list-group-item">Imperial IPA Recipes <span class="badge"><%= Recipe.where({ :style_id => "10" }).count %></span></a>
             <a href="#" class="list-group-item">American Wheat Recipes <span class="badge"><%= Recipe.where({ :style_id => "2" }).count %></span></a>
             <a href="#" class="list-group-item">Barleywine Recipes <span class="badge"><%= Recipe.where({ :style_id => "6" }).count %></span></a>
             <a href="#" class="list-group-item">Amber/Red Ale Recipes <span class="badge"><%= Recipe.where({ :style_id => "3" }).count %></span></a>
-            <h3><i>Recipe Types</i></h3>
+            <h3><i>Popular Recipe Types</i></h3>
             <a href="#" class="list-group-item">All Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "All-Grain!"}).count %></span></a>
             <a href="#" class="list-group-item">Mini Mash/Partial Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Partial or Mini-Mash"}).count %></span></a>
             <a href="#" class="list-group-item">Extract with Specialty Grain Recipes<span class="badge"><%= Recipe.where({ :brew_type => "Extract w/Special Grains"}).count %></span></a>
@@ -115,46 +127,12 @@
           </div>
         </div>
 
-
-    <!--       <div align="center" class="col-md-4">
-            <% recipes = Recipe.where({ :style => "Imperial Stout" })  %>
-                        <% recipes.each do |recipe| %>
-                      <li><%= recipe.name %><small></li>
-                      <% end %>
+<!--           <div align="center" class="col-md-6 col-lg-4">
+              <%#= image_tag "tbe.jpg", :height => '57%', :width => '57%' %>
+            <h4 align="center">BREW. SHARE. ENJOY!</h4>
           </div> -->
 
-          <div align="center" class="col-md-6 col-lg-4">
-            <h4 align="center">King Hop</h4>
-                    <%= image_tag "tbe.jpg", :height => '57%', :width => '57%' %>
-            <h4 align="center">BREW. SHARE. ENJOY!</h4>
-          </div>
-
     </div>
-    <hr>
-
-    <!-- <div class="row">
-        <div align="center" class="col-md-6 col-lg-6">
-
-        </div> -->
-
-
-    <!--     <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-               <img src="http://www.thenibble.com/reviews/main/beer/images/6.jpg" alt="Tall Glass">
-            </a>
-        </div>
-
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-               <img src="http://www.thenibble.com/reviews/main/beer/images/6.jpg" alt="Tall Glass">
-            </a>
-        </div> -->
-
-    <!--     <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-               <img src="http://www.thenibble.com/reviews/main/beer/images/6.jpg" alt="Tall Glass">
-            </a>
-        </div> -->
 
       </div> <!-- End Row Div -- >
 

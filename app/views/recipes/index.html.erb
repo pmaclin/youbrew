@@ -2,17 +2,8 @@
   <h1>
     Your Recipes
     <h5>You've added <font coler="red"><%= current_user.recipes.count %> recipes (some may be hidden)</font>. Are you ready to add some more?</h5>
-<!--     </h1>
-    <h3>Add a New Recipe <%= link_to icon('plus'), new_recipe_path, class: "btn btn-lg btn-success" %>
-    </h3> -->
   </div>
 <!-- Responsive, Isotope-based layout example -->
-
-<!-- <div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Recipes (start typing)" class="form-control">
-  </div>
-</div> -->
 
 <!-- Code for index of recipe cards... -->
 
@@ -33,10 +24,16 @@
       </div>
     </div>
 
+<% if current_user.recipes.count == 0 %>
 
+          <div class="col-md-6 col-lg-8">
+                <%= image_tag "tbe.jpg", :height => '100%', :width => '100%' %>
+                  <h4 align="center">BREW. SHARE. ENJOY!</h4>
+          </div>
+
+<% else %>
 
 <% @recipes.each do |recipe| %>
-
 <% if recipe.is_active == false %>
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-8">
 </div>
@@ -106,6 +103,7 @@
   <%# if @recipe.is_active = false %>
     <!-- <h3> This recipe is not published.</h3> -->
   <%# end %> <!-- end tag for first/true if -->
+<% end %>
 <% end %>
 <% end %>
 
