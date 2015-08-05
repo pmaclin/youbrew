@@ -14,7 +14,7 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'simple_form'
 
-gem 'devise'
+gem 'devise', '~> 3.5.1'
 
 gem 'seed_dump'
 
@@ -23,7 +23,6 @@ gem 'carrierwave'
 gem 'kaminari'
 
 gem 'foreigner'
-
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
