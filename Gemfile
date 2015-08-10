@@ -11,7 +11,9 @@ end
 # gem 'pg'
 
 gem 'font-awesome-sass'
+
 gem 'bootstrap-sass'
+
 gem 'simple_form'
 
 gem 'devise', '~> 3.5.1'
