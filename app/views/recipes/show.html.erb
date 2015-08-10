@@ -1,0 +1,85 @@
+<!-- Responsive panel example-->
+<div class="page-header">
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Recipe Name: <%= @recipe.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+
+              <dt>Brew type</dt>
+              <dd><%= @recipe.brew_type %></dd>
+
+              <dt>Description</dt>
+              <dd><%= @recipe.description %></dd>
+
+              <dt>Target Original</dt>
+              <dd><%= @recipe.tog %></dd>
+
+              <dt>Target Final Gravity</dt>
+              <dd><%= @recipe.tfg %></dd>
+
+              <dt>Tabv</dt>
+              <dd><%= @recipe.tabv %></dd>
+
+              <dt>Target Aroma</dt>
+              <dd><%= @recipe.taroma %></dd>
+
+              <dt>Target IBUs</dt>
+              <dd><%= @recipe.tibu %></dd>
+
+              <dt>Label</dt>
+              <dd><%= @recipe.label %></dd>
+
+              <dt>Target Flavor Profile</dt>
+              <dd><%= @recipe.tflavpro %></dd>
+
+              <dt>User</dt>
+              <dd><%= @recipe.user.email %></dd>
+
+              <dt>Style</dt>
+              <dd><%= @recipe.style.name %></dd>
+
+              <dt>Published?</dt>
+              <dd><%= @recipe.is_active %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <%= link_to icon('chevron-left'), recipes_path, class: "btn btn-primary" %>
+
+
+              <%= link_to icon('edit'), edit_recipe_path(@recipe), class: "btn btn-warning" %>
+
+              <%#= link_to icon('trash-o'), @recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+
+              <%#= link_to icon('trash-o'), @recipe, method: :delete, data: { confirm: "Do you really want to delete this recipe?" }, class: "btn btn-danger" %>
+            </div>
+          </div> <!-- end column -->
+        </div> <!-- end row div -->
+<hr>
+        <% if @recipe.is_active == true %>
+
+            <div align="right">
+            <!-- This code lets the newly created batch know from which recipe it came. -->
+              Create a new batch: <%= link_to icon('plus'), new_batch_path( :recipe_id => params[:id] ), class: "btn btn-lg btn-success" %>
+            </div>
+
+        <% else %>
+            <h4 align="center">Can't create a batch with an unpublished recipe!</h4>
+            <p align="center">Select the edit icon to publish this recipe.</p>
+        <% end %>
+<hr>
+            </div> <!-- end panel body -->
+      </div> <!-- end panel-panel primary div -->
+    </div> <!-- end column div -->
+  </div> <!-- end div row -->
+</div> <!-- end div page header -->
+<!-- </div> -->
+
+
+
+<!-- End responsive panel example -->
