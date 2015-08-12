@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # Should this be in batches? Since we're creating a new review for a batch??
   # post("batches/:id/post_new_review", { :controller => "batches", :action => "new_review"})
 
+  # Route for FAQ's
+
+
   # Route to access user's reviewed batches
   get("reviewed_batches", { :controller => "reviews", :action => "reviewed"})
 
