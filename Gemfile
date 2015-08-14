@@ -1,16 +1,13 @@
 ruby '2.2.0'
 
-
-
 source 'https://rubygems.org'
+
+gem 'activeadmin', github: 'activeadmin'
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
-# Connecting Ruby to Heroku Postgres Database
-# gem 'pg'
 
 gem 'font-awesome-sass'
 
