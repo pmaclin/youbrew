@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
 
       respond_to do |format|
         if @review.save
-          format.html { redirect_to "/users/edit", notice: 'Your review was successfully created ;)' }
+          format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
           format.json { render :show, status: :created, location: @review }
           else
           format.html { render :new }
