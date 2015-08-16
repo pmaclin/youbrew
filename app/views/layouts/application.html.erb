@@ -11,7 +11,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
   <!-- <a class="navbar-brand" href="#"><img alt="TBE" <%#= image_tag "TBE_Logo_transExported_35x34.png", :height => '100%', :width => '100%' %></a> -->
 
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -35,7 +35,7 @@
         <li><%#= link_to "Mirrors", mirrors_path %></li>
         <li><%= link_to "Rate-a-Brew", "/mirrors/input" %></li>
         <li><%= link_to "FAQs", "/static/faq" %></li>
-        <li><%= link_to "About", root_path %></li>
+        <li><%= link_to "About", "/static/about" %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -47,6 +47,17 @@
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <% end %>
       </ul>
+
+      <div class="form-group">
+        <form class="navbar-form navbar-left" action="/match_brew">
+          <div align="left">
+            <font color="white"><label for="new number" ></label></font>
+            <input name="new_number" type="text" id="first">
+            <input align="right" type="submit" value="Find your brew">
+          </div>
+        </form>
+      </div>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

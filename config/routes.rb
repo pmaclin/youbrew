@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get("/static/faq", { :controller => "static", :action => "faq"})
 
+  get("/static/about", { :controller => "static", :action => "about"})
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

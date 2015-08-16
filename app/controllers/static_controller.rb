@@ -4,4 +4,7 @@ class StaticController < ApplicationController
     # render :layout => 'faq'
   end
 
+  def about
+  end
+
 end
