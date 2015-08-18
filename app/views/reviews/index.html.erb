@@ -41,8 +41,8 @@
 
           <tr>
             <td><%= review.batch_id %></td>
-            <td><%= image_tag review.batch.user.avatar, :height => '50px', :width => '50px' %></td>
-            <td><%= image_tag review.batch.image, :height => '50px', :width => '50px'  %></td>
+            <td><%= image_tag review.batch.user.avatar, :height => '50px', :width => '50px', :class => "img-circle" %></td>
+            <td><%= image_tag review.batch.image, :height => '50px', :width => '50px', :class => 'img-thumbnail'  %></td>
             <td><%= review.headline.truncate(30) %></td>
             <td><%= review.content.truncate(40, omission: '(Select controls for more detail.)') %></td>
             <td><%= review.overall_rating %></td>
