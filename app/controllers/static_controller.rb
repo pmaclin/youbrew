@@ -1,7 +1,8 @@
 class StaticController < ApplicationController
 
+  skip_before_action :authenticate_user!
+
   def faq
-    # render :layout => 'faq'
   end
 
   def about
