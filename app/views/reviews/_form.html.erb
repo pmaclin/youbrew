@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :headline, hint: "Create a headline that will catch the brewer's eye." %>
-    <%= f.input :content, hint: "Briefly describe your brew experience. What did you like or dislike about the beer?" %>
-    <%= f.input :overall_rating, collection: 1..5, hint: "Hint: '5' is an outstanding brew experience, '1' is not so great." %>
+    <%= f.input :content, hint: "Briefly describe your overall impression of the beer. How closely does it match the standard descriptions on the styles page?" %>
+    <%= f.input :overall_rating, collection: 1..6, hint: "Hint: '6' is an outstanding brew experience while a '1' is problematic." %>
     <%#= f.association :user %>
     <%#= f.association :batch %>
     <%= f.hidden_field :batch_id %>
