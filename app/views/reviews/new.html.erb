@@ -11,8 +11,9 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">New Review for batch/brew id# <%= @review.batch_id %> | <%= @review.batch.recipe.name %></h3>
+          <p><i>Style Inspiration: <font color="red"><%= @review.batch.recipe.style.name %></font></i></p>
           <br>
-          <p><i>Keep in mind that you're reviewing this brewer's beer based on your overall experience. In comparison, a professional beer judge would judge this beer based on several factors including aroma, appearance, flavor and mouthfeel!</i></p>
+          <p><i>"Keep in mind that you're reviewing this brewer's beer based on your overall experience. In comparison, a professional beer judge would judge this beer based on several factors including aroma, appearance, flavor and mouthfeel!"</i></p>
         </div>
         <div class="panel-body">
           <%= render 'form', review: @review %>
