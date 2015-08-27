@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814154556) do
+ActiveRecord::Schema.define(version: 20150819224427) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150814154556) do
     t.integer  "recipe_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "matched"
   end
 
   add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
@@ -104,6 +105,8 @@ ActiveRecord::Schema.define(version: 20150814154556) do
     t.integer  "batch_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "is_reviewed"
+    t.integer  "matched"
   end
 
   add_index "reviews", ["batch_id"], name: "index_reviews_on_batch_id"

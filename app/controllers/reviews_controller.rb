@@ -16,7 +16,9 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+
       @review = Review.find(params[:id])
+
   end
 
   # Adds new review to db
@@ -33,8 +35,9 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     # render :text => params.to_s and return
-
     # params[:batch_id]
+
+    @r = Review.find_by({ :matched => '@review.batch.matched', :batch_id => '@review.batch.id' })
 
     @review = Review.new(review_params)
 
@@ -42,19 +45,36 @@ class ReviewsController < ApplicationController
 
     if current_user.id == @review.batch.user_id
         # We should redirect users to a different page. Not @review
-        redirect_to @review, notice: 'Hey....Brewers code violation! You know you cannot review your own stuff, right?'
-    else
+        redirect_to @review, notice: 'Hey....Brewer code violation! You know you cannot review your own stuff, right?'
+      else
 
-      respond_to do |format|
-        if @review.save
-          format.html { redirect_to @review, notice: 'Your review was successfully created ;)' }
-          format.json { render :show, status: :created, location: @review }
-          else
-          format.html { render :new }
-          format.json { render json: @review.errors, status: :unprocessable_entity }
+      # if @review.is_reviewed == true and @review.matched == @review.batch.matched
+      if @r.present?
+        redirect_to @review, notice: 'You have already left a review for this brew. Are you sure this is what you want to do?'
+
+        else
+          # setting the batch matched # to the review.matched field
+          @review.is_reviewed = true
+          @review.matched = @review.batch.matched
+          @review.save
+
+          respond_to do |format|
+            if @review.save
+              # @review.is_reviewed = true
+              # @review.save
+              format.html { redirect_to ("/"), notice: 'Your review was successfully created ;)' }
+              format.json { render :show, status: :created, location: @review }
+                else
+                format.html { render :new }
+                format.json { render json: @review.errors, status: :unprocessable_entity }
+          end
+      end
+             # setting the batch matched # to the review.matched field
+             # @review.matched = @review.batch.matched
+             # @review.is_reviewed = true
+             # @review.save
         end
       end
-    end
   end
 
   # PATCH/PUT /reviews/1

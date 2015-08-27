@@ -5,6 +5,8 @@ class Review < ActiveRecord::Base
   # validates :overall_rating, :presence => true
   # validates :user, :presence => true
   # validates :batch, :presence => true
+  validates :matched, :uniqueness => true
 
   # validates_uniqueness_of :new_number
+  # validates_uniqueness_of :matched
 end

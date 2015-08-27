@@ -1,10 +1,17 @@
 <!-- Responsive panel example-->
 <div class="page-header">
+
+<%# if @r.present? %>
+  <!-- <h1>You are not authorized to leave a review with this number!</h1> -->
+    <!-- format.html { redirect_to @review, notice: 'You are not authorized to create a review with this number.' } -->
+<%# else %>
+
+
   <div class="row">
     <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title"><%#= @review.id %>Review by <%= @review.user.username %></h3>
+          <h3 class="panel-title">Review by <%= @review.user.username %></h3>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -18,17 +25,11 @@
 
                 <br>
                 <!-- <dt>Overall rating</dt> -->
-                <dd align="center"><h4> User <%= @review.user.username %> scores batch # <%= @review.batch_id %> of <%= @review.batch.recipe.name %> a </h4></dd><h1 align="center"><%= @review.overall_rating %> out of 5</h1>
-
-                <!-- <dt>User</dt> -->
-                <dd><%#= @review.user_id %></dd>
-
-                <!-- <dt>Batch</dt> -->
-                <dd><%#= @review.batch_id %></dd>
+                <dd align="center"><h4> User <%= @review.user.username %> rates batch # <%= @review.batch_id %> of <%= @review.batch.recipe.name %> a </h4></dd><h1 align="center"><%= @review.overall_rating %> out of 5</h1>
 
               </dl>
               <div class="btn-group btn-group-justified">
-                <%= link_to icon('chevron-left'), :reviews, class: "btn btn-primary" %>
+                <%= link_to icon('chevron-left'), :root, class: "btn btn-primary" %>
 
                 <%#= link_to icon('edit'), edit_review_path(@review), class: "btn btn-warning" %>
 
@@ -40,8 +41,12 @@
       </div>
     </div>
   </div>
-</div>
 
+
+<%# end %>
+
+
+</div>
 <!-- End responsive panel example -->
 <!-- From review/show: -->
 <!-- 1. The user/fan will input a unique number

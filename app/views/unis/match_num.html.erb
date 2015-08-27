@@ -10,6 +10,9 @@
   <% if @u.present? %>
     <h1 align="center">We have a match!<span aria-hidden="true" class="fa fa-beer"></span></h1> <h2 align="center"><%#= @u.rand_num %> Here's what you have in your hand:</h2>
   </div>
+  Incoming Params of new_number: <%= params[:new_number]%>
+  <% @u.batch.matched = params[:new_number]%>
+  <% @u.batch.save %>
 </div>
 
   <div class="row">
@@ -78,6 +81,8 @@
               <p><h4 align="center">Tell the brewer what you <u>really</u> think about this brew.</h4></p>
               <p><h4 align="center">Review it now.</h4></p>
               <p align ="center"><%= link_to icon('check'), new_review_path( :batch_id => (@u.batch_id) ), class: "btn btn-lg btn-success" %></p>
+              <!-- Send batch info to the new review path; send params[:new_number] to the edit_batch_path -->
+
               <% @u.is_used = true %>
               <% @u.save %>
 

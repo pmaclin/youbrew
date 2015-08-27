@@ -28,8 +28,6 @@ class UnisController < ApplicationController
 
   def match_num
     @u = Uni.find_by({ :rand_num => params[:new_number] })
-    # @u.is_used = true
-    # @u.save
   end
 
   # POST /unis
