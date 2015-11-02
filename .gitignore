@@ -17,3 +17,6 @@
 /tmp
 
 app/views/recipes/show.html.erb
+
+.env
+Procfile
